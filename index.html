@@ -145,6 +145,40 @@
     .message-content {
       display: none;
     }
+    /* New star like button styles */
+    .star-like-group {
+      margin-top: 18px;
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .star-like-btn {
+      font-size: 2em;
+      color: #ffd700;
+      background: #1e1e2f;
+      border: none;
+      border-radius: 50%;
+      padding: 9px 22px;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.7);
+      cursor: pointer;
+      outline: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .star-like-btn:hover {
+      background: #ffe066;
+      transform: scale(1.09);
+    }
+    .like-count {
+      font-size: 1.25em;
+      margin-left: 8px;
+      color: #ffd700;
+      font-weight: 700;
+      text-shadow: 0 0 6px #ffd700aa;
+      user-select: none;
+      min-width: 25px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -167,33 +201,32 @@
     </div>
 
     <div id="messageContent" class="message-content" style="display: none;">
-      <h1>📋 Today's Encrypted Message</h1>
-      <div class="date-info">📅 Last Updated: <span id="currentDate"></span></div>
+<div id="encodedMessage" class="message-box">
+  Nannnnu I'm really sorry 😔.  Main time se message nahi daal paa rha ,  tabiyat khraab chal rhi hai kal se. I swear kal se daalunga time pe I'm really sorry jaan I'm really sorry 😔😔😔. .kya karu jaise jaise din badh rhe hai aur mushkil ho rha hai bohot yaad aati hai Nannuu , bas ab ye hai ki aapne jo bol usse thodi ummed hai ,    Par nannu Kaise kru, yaaad to aati hai na.   Interview bi bohot  baar dekh , liya bas duaa Krna mai apke birthday se pehle theek ho jaau , 🙇🏻🙇🏻🙇🏻. I misss u so much nannnnu too much 🥺🥺🥺🥺🥺🥺🥺
+  Ye lo appke liye chiji 🫴🏻🍫🍫🍫🍫🍫🍫🍫
 
-      <h3>Base64 Encrypted Message:</h3>
+  Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg you nannu mere bacheee mere pyaaru cutu shone bache , meri aankho kaa taara ho na 🥺. ...
 
-      <div id="encodedMessage" class="message-box">
-           Nannnnu I'm really sorry 😔.  Main time se message nahi daal paa rha ,  tabiyat khraab chal rhi hai kal se.       , I swear kal se daalunga time pe I'm really sorry jaan I'm really sorry 😔😔😔. .kya karu jaise jaise din badh rhe hai aur mushkil ho rha hai bohot yaad aati hai Nannuu , bas ab ye hai ki aapne jo bol usse thodi ummed hai ,    Par nannu Kaise kru, yaaad to aati hai na.   Interview bi bohot  baar dekh , liya bas duaa Krna mai apke birthday se pehle theek ho jaau , 🙇🏻🙇🏻🙇🏻. I misss u so much nannnnu too much 🥺🥺🥺🥺🥺🥺🥺
-Ye lo appke liye chiji 🫴🏻🍫🍫🍫🍫🍫🍫🍫
 
-Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg you nannu mere bacheee mere pyaaru cutu shone bache , meri aankho kaa taara ho na 🥺. ...
 
-(/\     /\
-{  `---'  }
-{  .   .  }
-(    =^=   )
-{          }
-{          }
-(,,) (,,)
+  <!-- Inserted photo below -->
+  <img 
+    src="1000750949.jpeg" 
+    alt="Special Photo" 
+    style="display:block; margin:24px auto 0 auto; max-width:98%; border-radius:15px; box-shadow:0 6px 24px rgba(0,0,0,0.38);" 
+  />
+  <p style="margin-top:12px; color:#ffd700; font-size:1.07em; font-style:italic;">
+    ✨ A memory to make you smile!
+  </p>
+</div>
+      
 
-        
-
-        
+      <!-- Star Like Button -->
+      <div class="star-like-group">
+        <button id="starLikeBtn" class="star-like-btn" title="Like with a Star">⭐</button>
+        <span id="starLikeCount" class="like-count">0</span>
       </div>
-<!-- LikeBtn.com BEGIN -->
-<span class="likebtn-wrapper" data-theme="custom" data-icon_l="str2" data-identifier="item_1"></span>
-<script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-<!-- LikeBtn.com END -->
+
       <button onclick="decodeMessage()" class="btn">🔓 Decode Message</button>
       <button onclick="copyMessage()" class="btn">📋 Copy Encoded Message</button>
 
@@ -299,6 +332,36 @@ Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg yo
     document.addEventListener("click", resetInactivityTimer);
     document.addEventListener("keypress", resetInactivityTimer);
     resetInactivityTimer();
+
+    // --- Star Like Button With 24h Reset ---
+    function updateStarLike() {
+      let starLikeCount = localStorage.getItem('star_like_count') || '0';
+      document.getElementById('starLikeCount').textContent = starLikeCount;
+    }
+
+    function maybeResetStarLike() {
+      const lastLiked = localStorage.getItem('star_like_last_time');
+      if (!lastLiked || Date.now() - Number(lastLiked) > 24*60*60*1000) {
+        localStorage.setItem('star_like_count', '0');
+        localStorage.setItem('star_like_last_time', Date.now());
+      }
+    }
+
+    maybeResetStarLike();
+    updateStarLike();
+
+    document.getElementById('starLikeBtn').addEventListener('click', function() {
+      let count = Number(localStorage.getItem('star_like_count') || 0) + 1;
+      localStorage.setItem('star_like_count', count);
+      localStorage.setItem('star_like_last_time', Date.now());
+      document.getElementById('starLikeCount').textContent = count;
+    });
+
+    // Also auto-reset if a new day is detected while page open
+    setInterval(function(){
+      maybeResetStarLike();
+      updateStarLike();
+    }, 60*1000); // check every minute
   </script>
 </body>
 </html>
