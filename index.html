@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🌙✨ Hamster's Secure Message Portal 🐹</title>
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box;}
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #0b3d91 0%, #1e1e2f 100%);
@@ -33,20 +31,9 @@
       color: #ffd700;
       text-shadow: 0 0 8px #fff, 0 0 25px #ffd700;
     }
-    .emoji-stars {
-      font-size: 1.2em;
-      margin-bottom: 18px;
-    }
-    .input-group {
-      margin-bottom: 20px;
-      text-align: left;
-      color: #ccc;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 6px;
-    }
+    .emoji-stars { font-size: 1.2em; margin-bottom: 18px; }
+    .input-group { margin-bottom: 20px; text-align: left; color: #ccc; }
+    label { font-weight: bold; display: block; margin-bottom: 6px;}
     input[type="password"] {
       width: 100%;
       padding: 12px 15px;
@@ -59,9 +46,7 @@
       box-shadow: inset 0 0 8px #444;
       transition: box-shadow 0.3s;
     }
-    input[type="password"]:focus {
-      box-shadow: inset 0 0 12px #ffd700;
-    }
+    input[type="password"]:focus { box-shadow: inset 0 0 12px #ffd700; }
     button.btn {
       background: #ffd700;
       color: #1e1e2f;
@@ -91,6 +76,43 @@
       color: #f0e68c;
       text-shadow: 0 0 5px #a9a9a9;
       min-height: 120px;
+      position: relative;
+    }
+    .special-photo-container {
+      background: rgba(48, 48, 90, 0.82);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-top: 16px;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .special-photo-container img {
+      margin-top: 2px;
+      max-width: 96%;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+    }
+    .special-photo-label {
+      color: #f0f8ff;
+      margin-top: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .special-photo-caption {
+      margin-top: 5px;
+      color: #ffd700;
+      font-size:1.12em;
+      font-style: italic;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      letter-spacing: 0.03em;
     }
     .decoded-message {
       background: #314d26;
@@ -105,6 +127,65 @@
       max-width: 560px;
       overflow-wrap: break-word;
       font-size: 1.15em;
+    }
+    .comment-section {
+      margin:22px 0 30px 0;
+    }
+    .comment-section input[type="text"] {
+      padding:9px 13px;
+      border-radius:6px;
+      border:1px solid #eee;
+      font-size:1em;
+      background:#1a1a2e;
+      color:#ffd700;
+      width:210px;
+    }
+    .comment-section button[type="submit"] {
+      background:#ffd700;
+      color:#1a1a2e;
+      font-weight:600;
+      border:none;
+      border-radius:6px;
+      padding:9px 22px;
+      font-size:1em;
+      cursor:pointer;
+      box-shadow:0 2px 8px rgba(255,215,0,0.15);
+      transition: background 0.2s;
+    }
+    .comment-section button[type="submit"]:hover {
+      background:#ffea00;
+    }
+    .comment-section .error {
+      color:#ff4040;
+      font-size:0.93em;
+      font-weight:600;
+      margin-top:6px;
+      text-shadow:0 0 3px #ff0000;
+      text-align:center;
+    }
+    .comment-section #commentList {
+      margin-top:22px;
+      text-align:left;
+      font-family: Arial, sans-serif;
+      max-height:130px;
+      overflow-y:auto;
+      padding-right:6px;
+    }
+    .comment-bubble {
+      background:rgba(40,40,60,0.97);
+      color:#ffd700;
+      margin-bottom:10px;
+      border-radius:7px;
+      padding:7px 12px;
+      font-size:1em;
+      display:inline-block;
+      box-shadow:0 2px 10px #1114;
+      max-width:90%;
+    }
+    .comment-meta {
+      color:#aaa;
+      margin-left:8px;
+      font-size:0.93em;
     }
     .error {
       color: #ff4040;
@@ -142,43 +223,7 @@
       text-shadow: 0 0 4px #555;
       color: #f0e68c;
     }
-    .message-content {
-      display: none;
-    }
-    /* New star like button styles */
-    .star-like-group {
-      margin-top: 18px;
-      margin-bottom: 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .star-like-btn {
-      font-size: 2em;
-      color: #ffd700;
-      background: #1e1e2f;
-      border: none;
-      border-radius: 50%;
-      padding: 9px 22px;
-      box-shadow: 0 4px 15px rgba(255,215,0,0.7);
-      cursor: pointer;
-      outline: none;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .star-like-btn:hover {
-      background: #ffe066;
-      transform: scale(1.09);
-    }
-    .like-count {
-      font-size: 1.25em;
-      margin-left: 8px;
-      color: #ffd700;
-      font-weight: 700;
-      text-shadow: 0 0 6px #ffd700aa;
-      user-select: none;
-      min-width: 25px;
-      text-align: center;
-    }
+    .message-content { display: none; }
   </style>
 </head>
 <body>
@@ -195,52 +240,67 @@
       </form>
       <div id="error" class="error"></div>
       <div class="info">
-        🔒 This portal contains encrypted  messages that are updated daily.<br />
+        🔒 This portal contains encrypted messages that are updated daily.<br />
         💡 Enter the correct password to view and decode today's message.
       </div>
     </div>
-
     <div id="messageContent" class="message-content" style="display: none;">
-<div id="encodedMessage" class="message-box">
-  Nannnnu I'm really sorry 😔.  Main time se message nahi daal paa rha ,  tabiyat khraab chal rhi hai kal se. I swear kal se daalunga time pe I'm really sorry jaan I'm really sorry 😔😔😔. .kya karu jaise jaise din badh rhe hai aur mushkil ho rha hai bohot yaad aati hai Nannuu , bas ab ye hai ki aapne jo bol usse thodi ummed hai ,    Par nannu Kaise kru, yaaad to aati hai na.   Interview bi bohot  baar dekh , liya bas duaa Krna mai apke birthday se pehle theek ho jaau , 🙇🏻🙇🏻🙇🏻. I misss u so much nannnnu too much 🥺🥺🥺🥺🥺🥺🥺
-  Ye lo appke liye chiji 🫴🏻🍫🍫🍫🍫🍫🍫🍫
+      <h1>📋 Today's Encrypted Message</h1>
+      <div class="date-info">📅 Last Updated: <span id="currentDate"></span></div>
+      <h3>Base64 Encrypted Message:</h3>
+      <div id="encodedMessage" class="message-box">
+        Nannnnu I'm really sorry 😔. Main time se message nahi daal paa rha ,  tabiyat khraab chal rhi hai kal se. I swear kal se daalunga time pe I'm really sorry jaan I'm really sorry 😔😔😔. .kya karu jaise jaise din badh rhe hai aur mushkil ho rha hai bohot yaad aati hai Nannuu , bas ab ye hai ki aapne jo bol usse thodi ummed hai , Par nannu Kaise kru, yaaad to aati hai na. Interview bi bohot  baar dekh , liya bas duaa Krna mai apke birthday se pehle theek ho jaau , 🙇🏻🙇🏻🙇🏻. I misss u so much nannnnu too much 🥺🥺🥺🥺🥺🥺🥺
+        Ye lo appke liye chiji 🫴🏻🍫🍫🍫🍫🍫🍫🍫
 
-  Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg you nannu mere bacheee mere pyaaru cutu shone bache , meri aankho kaa taara ho na 🥺. ...
+        Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg you nannu mere bacheee mere pyaaru cutu shone bache , meri aankho kaa taara ho na 🥺. ...
 
+        (/\     /\
+        {  `---'  }
+        {  .   .  }
+        (    =^=   )
+        {          }
+        {          }
+        (,,) (,,)
 
-
-  <!-- Inserted photo below -->
-  <img 
-    src="1000750949.jpeg" 
-    alt="Special Photo" 
-    style="display:block; margin:24px auto 0 auto; max-width:98%; border-radius:15px; box-shadow:0 6px 24px rgba(0,0,0,0.38);" 
-  />
-  <p style="margin-top:12px; color:#ffd700; font-size:1.07em; font-style:italic;">
-    ✨ A memory to make you smile!
-  </p>
-</div>
-      
-
-      <!-- Star Like Button -->
-      <div class="star-like-group">
-        <button id="starLikeBtn" class="star-like-btn" title="Like with a Star">⭐</button>
-        <span id="starLikeCount" class="like-count">0</span>
+        <!-- Special Photo Section -->
+        <div class="special-photo-container">
+          <img src="1000742822.jpeg" alt="Special Photo" />
+          <div class="special-photo-label">
+            🖼️ Special Photo
+          </div>
+          <div class="special-photo-caption">
+            ✨ A memory to make you smile!
+          </div>
+        </div>
       </div>
 
+      <!-- Short Comment Section -->
+      <div class="comment-section">
+        <div style="font-size:1.11em; color:#ffd700; font-weight:bold; margin-bottom:2px;">
+          Leave a short word or comment so I know you read the message:
+        </div>
+        <form id="commentForm" style="margin:12px 0 0 0; display:flex;gap:10px; flex-wrap:wrap; justify-content:center;">
+          <input 
+            type="text" id="commentInput" required maxlength="30" 
+            placeholder="Type a word or short message..." 
+          >
+          <button type="submit">
+            Send
+          </button>
+        </form>
+        <div id="commentError" class="error" style="margin-top:6px;"></div>
+        <div id="commentList"></div>
+      </div>
       <button onclick="decodeMessage()" class="btn">🔓 Decode Message</button>
-      <button onclick="copyMessage()" class="btn">📋 Copy Encoded Message</button>
-
+      <button onclick="copyMessage()" class="btn">📋 Copy Encoded</button>
       <div id="decodedSection" style="display:none;">
         <h3>Decoded Message:</h3>
         <div id="decodedMessage" class="decoded-message"></div>
       </div>
-
       <div id="copySuccess" class="success" style="display:none;">
         ✅ Message copied to clipboard!
       </div>
-
       <button onclick="logout()" class="btn logout-btn">🚪 Logout</button>
-
       <div class="info">
         🔄 This page is updated daily with new encrypted messages.<br />
         🔗 Keep this link safe and check back tomorrow for new content!<br />
@@ -251,7 +311,6 @@
   <script>
     // Configuration: Your password (change if you want)
     const CORRECT_PASSWORD = "MOONSTAR131";
-
     function checkPassword(event) {
       event.preventDefault();
       const entered = document.getElementById("password").value;
@@ -266,7 +325,6 @@
         document.getElementById("password").value = "";
       }
     }
-
     function decodeMessage() {
       const encoded = document.getElementById("encodedMessage").textContent.trim();
       try {
@@ -277,7 +335,6 @@
         alert("❌ Error decoding message. Please check if the Base64 string is valid.");
       }
     }
-
     function copyMessage() {
       const encoded = document.getElementById("encodedMessage").textContent.trim();
       navigator.clipboard.writeText(encoded).then(() => {
@@ -296,7 +353,6 @@
         setTimeout(() => (successDiv.style.display = "none"), 3000);
       });
     }
-
     function logout() {
       document.getElementById("loginForm").style.display = "block";
       document.getElementById("messageContent").style.display = "none";
@@ -304,7 +360,6 @@
       document.getElementById("decodedSection").style.display = "none";
       document.getElementById("error").textContent = "";
     }
-
     function updateCurrentDate() {
       const now = new Date();
       const options = {
@@ -317,7 +372,6 @@
       };
       document.getElementById("currentDate").textContent = now.toLocaleDateString("en-IN", options) + " IST";
     }
-
     let inactivityTimer;
     function resetInactivityTimer() {
       clearTimeout(inactivityTimer);
@@ -328,40 +382,61 @@
         }
       }, 30 * 60 * 1000);
     }
-
     document.addEventListener("click", resetInactivityTimer);
     document.addEventListener("keypress", resetInactivityTimer);
     resetInactivityTimer();
 
-    // --- Star Like Button With 24h Reset ---
-    function updateStarLike() {
-      let starLikeCount = localStorage.getItem('star_like_count') || '0';
-      document.getElementById('starLikeCount').textContent = starLikeCount;
+    // --- Comment Section Logic ---
+    function getComments() {
+      // Get saved comments (persist in localStorage)
+      return JSON.parse(localStorage.getItem('message_comments') || '[]');
     }
-
-    function maybeResetStarLike() {
-      const lastLiked = localStorage.getItem('star_like_last_time');
-      if (!lastLiked || Date.now() - Number(lastLiked) > 24*60*60*1000) {
-        localStorage.setItem('star_like_count', '0');
-        localStorage.setItem('star_like_last_time', Date.now());
+    function saveComments(comments) {
+      localStorage.setItem('message_comments', JSON.stringify(comments));
+    }
+    function renderComments() {
+      const commentList = document.getElementById('commentList');
+      const comments = getComments();
+      if (comments.length === 0) {
+        commentList.innerHTML = '<span style="color:#aaa; font-size:0.98em;">No comments yet.</span>';
+        return;
       }
+      commentList.innerHTML = comments.map(c =>
+        `<div class="comment-bubble">
+            ${c.text}
+            <span class="comment-meta">(${c.date})</span>
+        </div>`
+      ).join('');
     }
-
-    maybeResetStarLike();
-    updateStarLike();
-
-    document.getElementById('starLikeBtn').addEventListener('click', function() {
-      let count = Number(localStorage.getItem('star_like_count') || 0) + 1;
-      localStorage.setItem('star_like_count', count);
-      localStorage.setItem('star_like_last_time', Date.now());
-      document.getElementById('starLikeCount').textContent = count;
+    document.getElementById('commentForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const commentInput = document.getElementById('commentInput');
+      const commentError = document.getElementById('commentError');
+      let comment = commentInput.value.trim();
+      if (comment.length === 0) {
+        commentError.textContent = "Please enter a word or short comment.";
+        return;
+      }
+      if (comment.length > 30) {
+        commentError.textContent = "Keep your comment under 30 characters.";
+        return;
+      }
+      // Add comment to local storage with date
+      let comments = getComments();
+      const now = new Date();
+      const dateStr = now.toLocaleDateString("en-IN", {
+        year: "numeric", month: "short", day: "numeric",
+        hour: "2-digit", minute: "2-digit"
+      }) + " IST";
+      comments.push({ text: comment, date: dateStr });
+      saveComments(comments);
+      commentInput.value = "";
+      commentError.textContent = "";
+      renderComments();
     });
-
-    // Also auto-reset if a new day is detected while page open
-    setInterval(function(){
-      maybeResetStarLike();
-      updateStarLike();
-    }, 60*1000); // check every minute
+    // Render comments on load
+    renderComments();
   </script>
 </body>
-</html>
+        </html>
+        
