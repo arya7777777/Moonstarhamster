@@ -65,133 +65,12 @@
       box-shadow: 0 8px 20px rgba(255,235,20,0.9);
       transform: translateY(-2px);
     }
-    .message-box {
-      background: #222244;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-      font-family: 'Courier New', monospace;
-      font-size: 1.1em;
-      word-break: break-word;
-      color: #f0e68c;
-      text-shadow: 0 0 5px #a9a9a9;
-      min-height: 120px;
-      position: relative;
-    }
-    .special-photo-container {
-      background: rgba(48, 48, 90, 0.82);
-      padding: 10px 14px;
-      border-radius: 10px;
-      margin-top: 16px;
-      margin-bottom: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .special-photo-container img {
-      margin-top: 2px;
-      max-width: 96%;
-      border-radius: 10px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.28);
-    }
-    .special-photo-label {
-      color: #f0f8ff;
-      margin-top: 8px;
-      font-size: 1em;
-      font-weight: 600;
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-    .special-photo-caption {
-      margin-top: 5px;
-      color: #ffd700;
-      font-size:1.12em;
-      font-style: italic;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      letter-spacing: 0.03em;
-    }
-    .decoded-message {
-      background: #314d26;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 10px auto 30px;
-      font-family: 'Courier New', monospace;
-      text-align: left;
-      color: #b0ffb0;
-      min-height: 100px;
-      box-shadow: 0 0 10px #62ff62;
-      max-width: 560px;
-      overflow-wrap: break-word;
-      font-size: 1.15em;
-    }
-    .comment-section {
-      margin:22px 0 30px 0;
-    }
-    .comment-section input[type="text"] {
-      padding:9px 13px;
-      border-radius:6px;
-      border:1px solid #eee;
-      font-size:1em;
-      background:#1a1a2e;
-      color:#ffd700;
-      width:210px;
-    }
-    .comment-section button[type="submit"] {
-      background:#ffd700;
-      color:#1a1a2e;
-      font-weight:600;
-      border:none;
-      border-radius:6px;
-      padding:9px 22px;
-      font-size:1em;
-      cursor:pointer;
-      box-shadow:0 2px 8px rgba(255,215,0,0.15);
-      transition: background 0.2s;
-    }
-    .comment-section button[type="submit"]:hover {
-      background:#ffea00;
-    }
-    .comment-section .error {
-      color:#ff4040;
-      font-size:0.93em;
-      font-weight:600;
-      margin-top:6px;
-      text-shadow:0 0 3px #ff0000;
-      text-align:center;
-    }
-    .comment-section #commentList {
-      margin-top:22px;
-      text-align:left;
-      font-family: Arial, sans-serif;
-      max-height:130px;
-      overflow-y:auto;
-      padding-right:6px;
-    }
-    .comment-bubble {
-      background:rgba(40,40,60,0.97);
-      color:#ffd700;
-      margin-bottom:10px;
-      border-radius:7px;
-      padding:7px 12px;
-      font-size:1em;
-      display:inline-block;
-      box-shadow:0 2px 10px #1114;
-      max-width:90%;
-    }
-    .comment-meta {
-      color:#aaa;
-      margin-left:8px;
-      font-size:0.93em;
-    }
     .error {
       color: #ff4040;
       margin-top: 12px;
       font-weight: 700;
       text-shadow: 0 0 6px #ff0000;
+      text-align:center;
     }
     .success {
       color: #4caf50;
@@ -224,6 +103,86 @@
       color: #f0e68c;
     }
     .message-content { display: none; }
+    .message-box {
+      background: #222244;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 22px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1em;
+      color: #f0e68c;
+      box-shadow: 0 4px 18px #0007;
+      min-height: 80px;
+      text-align: left;
+      position: relative;
+    }
+    .msg-photo {
+      margin-top: 15px;
+      max-width:95%;
+      border-radius: 12px;
+      box-shadow: 0 3px 14px #0008;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .msg-date-label {
+      color:#ffd700;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      font-size: 1.05em;
+      margin-bottom: 8px;
+      display: inline-block;
+      letter-spacing: 0.04em;
+    }
+    .comment-section label {
+      color: #ffd700;
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: .99em;
+    }
+    .comment-bubble {
+      background: rgba(40,40,60,0.97);
+      color: #ffd700;
+      margin-bottom: 7px;
+      border-radius: 7px;
+      padding: 7px 14px 7px 9px;
+      font-size: 1em;
+      display: inline-block;
+      box-shadow: 0 2px 10px #1114;
+      max-width: 92%;
+      word-break: break-word;
+    }
+    .comment-meta {
+      color: #aaa;
+      margin-left: 8px;
+      font-size: 0.93em;
+    }
+    .comment-section input[type="text"] {
+      padding: 5px 9px;
+      border-radius: 5px;
+      border: 1px solid #eee;
+      font-size: 0.98em;
+      background: #1a1a2e;
+      color: #ffd700;
+      margin-right: 5px;
+      margin-top: 5px;
+    }
+    .comment-section button[type="submit"] {
+      background: #ffd700;
+      color: #1e1e2f;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: .99em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(255,215,0,0.14);
+      margin-top: 5px;
+      transition: background 0.2s;
+    }
+    .comment-section button[type="submit"]:hover {
+      background: #ffea00;
+    }
   </style>
 </head>
 <body>
@@ -240,76 +199,54 @@
       </form>
       <div id="error" class="error"></div>
       <div class="info">
-        🔒 This portal contains encrypted messages that are updated daily.<br />
-        💡 Enter the correct password to view and decode today's message.
+        🔒 This portal contains all your messages with memories and wishes.<br />
+        💡 Enter the correct password to view, post, and remember.
       </div>
     </div>
+
     <div id="messageContent" class="message-content" style="display: none;">
-      <h1>📋 Today's Encrypted Message</h1>
-      <div class="date-info">📅 Last Updated: <span id="currentDate"></span></div>
-      <h3>Base64 Encrypted Message:</h3>
-      <div id="encodedMessage" class="message-box">
-        Nannnnu I'm really sorry 😔. Main time se message nahi daal paa rha ,  tabiyat khraab chal rhi hai kal se. I swear kal se daalunga time pe I'm really sorry jaan I'm really sorry 😔😔😔. .kya karu jaise jaise din badh rhe hai aur mushkil ho rha hai bohot yaad aati hai Nannuu , bas ab ye hai ki aapne jo bol usse thodi ummed hai , Par nannu Kaise kru, yaaad to aati hai na. Interview bi bohot  baar dekh , liya bas duaa Krna mai apke birthday se pehle theek ho jaau , 🙇🏻🙇🏻🙇🏻. I misss u so much nannnnu too much 🥺🥺🥺🥺🥺🥺🥺
-        Ye lo appke liye chiji 🫴🏻🍫🍫🍫🍫🍫🍫🍫
-
-        Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg you nannu mere bacheee mere pyaaru cutu shone bache , meri aankho kaa taara ho na 🥺. ...
-
-        (/\     /\
-        {  `---'  }
-        {  .   .  }
-        (    =^=   )
-        {          }
-        {          }
-        (,,) (,,)
-
-        <!-- Special Photo Section -->
-        <div class="special-photo-container">
-          <img src="1000742822.jpeg" alt="Special Photo" />
-          <div class="special-photo-label">
-            🖼️ Special Photo
-          </div>
-          <div class="special-photo-caption">
-            ✨ A memory to make you smile!
-          </div>
+      <h1>📋 Message Memories</h1>
+      <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
+      <!-- Static message list starts here -->
+      <div class="message-box">
+        <div class="msg-date-label">🗓️ August 30, 2025</div>
+        Nannnnu I'm really sorry 😔. Main time se message nahi daal paa rha , tabiyat khraab chal rhi hai kal se. I swear kal se daalunga time pe I'm really sorry jaan I'm really sorry 😔😔😔. .kya karu jaise jaise din badh rhe hai aur mushkil ho rha hai bohot yaad aati hai Nannuu , bas ab ye hai ki aapne jo bol usse thodi ummed hai , Par nannu Kaise kru, yaaad to aati hai na. Interview bi bohot baar dekh , liya bas duaa Krna mai apke birthday se pehle theek ho jaau , 🙇🏻🙇🏻🙇🏻. I misss u so much nannnnu too much 🥺🥺🥺🥺🥺🥺🥺 Ye lo appke liye chiji 🫴🏻🍫🍫🍫🍫🍫🍫🍫 Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg you nannu mere bacheee mere pyaaru cutu shone bache , meri aankho kaa taara ho na 🥺. ...
+        <img src="1000742822.jpeg" class="msg-photo" alt="Photo"/>
+        <div class="comment-section">
+          <label for="commentInput0">Leave a word so I know you read it:</label>
+          <form data-msgidx="0" class="commentForm" style="margin-bottom:6px;">
+            <input type="text" required maxlength="30" id="commentInput0" placeholder="Type a word or note...">
+            <button type="submit">Send</button>
+          </form>
+          <div class="error commentError" style="margin-top:3px;" id="commentError0"></div>
+          <div class="commentList" id="commentList0"></div>
         </div>
       </div>
-
-      <!-- Short Comment Section -->
-      <div class="comment-section">
-        <div style="font-size:1.11em; color:#ffd700; font-weight:bold; margin-bottom:2px;">
-          Leave a short word or comment so I know you read the message:
+      <div class="message-box">
+        <div class="msg-date-label">🗓️ August 31, 2025</div>
+        nannu 🥺.  bohot overthinking ho rhi hai.   please aap mere message padhke ispe react kr diya kro , and aapka phone kaafi der silent rhaa aap online bhi hote ho nannu, please aap agr Kisi se baat kr rhe ho to btaado
+        <br><br>
+        bohot yaad aayi h 🥺🥺🥺<br>
+        aaj yha bohot baarish pad rhi hai.  andhera bi aapko hug to kiya hua hai par man me bechaini si ho rhi hai please shif ka account kholke muje message Krna kuch puchna hai nannu 
+        <img src="1000742822.jpeg" class="msg-photo" alt="Photo"/>
+        <div class="comment-section">
+          <label for="commentInput1">Leave a word so I know you read it:</label>
+          <form data-msgidx="1" class="commentForm" style="margin-bottom:6px;">
+            <input type="text" required maxlength="30" id="commentInput1" placeholder="Type a word or note...">
+            <button type="submit">Send</button>
+          </form>
+          <div class="error commentError" style="margin-top:3px;" id="commentError1"></div>
+          <div class="commentList" id="commentList1"></div>
         </div>
-        <form id="commentForm" style="margin:12px 0 0 0; display:flex;gap:10px; flex-wrap:wrap; justify-content:center;">
-          <input 
-            type="text" id="commentInput" required maxlength="30" 
-            placeholder="Type a word or short message..." 
-          >
-          <button type="submit">
-            Send
-          </button>
-        </form>
-        <div id="commentError" class="error" style="margin-top:6px;"></div>
-        <div id="commentList"></div>
       </div>
-      <button onclick="decodeMessage()" class="btn">🔓 Decode Message</button>
-      <button onclick="copyMessage()" class="btn">📋 Copy Encoded</button>
-      <div id="decodedSection" style="display:none;">
-        <h3>Decoded Message:</h3>
-        <div id="decodedMessage" class="decoded-message"></div>
-      </div>
-      <div id="copySuccess" class="success" style="display:none;">
-        ✅ Message copied to clipboard!
-      </div>
-      <button onclick="logout()" class="btn logout-btn">🚪 Logout</button>
+      <button onclick="logout()" class="btn logout-btn" style="margin-top:16px;">🚪 Logout</button>
       <div class="info">
-        🔄 This page is updated daily with new encrypted messages.<br />
-        🔗 Keep this link safe and check back tomorrow for new content!<br />
-        ⚠️ Always keep your password secure and don't share it publicly.
+        🔄 Every message (with photo or not) will remain here permanently.<br>
+        💛 If you read a message, please leave a word/note in its comment box!
       </div>
     </div>
   </div>
   <script>
-    // Configuration: Your password (change if you want)
     const CORRECT_PASSWORD = "MOONSTAR131";
     function checkPassword(event) {
       event.preventDefault();
@@ -325,39 +262,10 @@
         document.getElementById("password").value = "";
       }
     }
-    function decodeMessage() {
-      const encoded = document.getElementById("encodedMessage").textContent.trim();
-      try {
-        const decoded = atob(encoded);
-        document.getElementById("decodedMessage").textContent = decoded;
-        document.getElementById("decodedSection").style.display = "block";
-      } catch (e) {
-        alert("❌ Error decoding message. Please check if the Base64 string is valid.");
-      }
-    }
-    function copyMessage() {
-      const encoded = document.getElementById("encodedMessage").textContent.trim();
-      navigator.clipboard.writeText(encoded).then(() => {
-        const successDiv = document.getElementById("copySuccess");
-        successDiv.style.display = "block";
-        setTimeout(() => (successDiv.style.display = "none"), 3000);
-      }).catch(() => {
-        const textArea = document.createElement("textarea");
-        textArea.value = encoded;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
-        const successDiv = document.getElementById("copySuccess");
-        successDiv.style.display = "block";
-        setTimeout(() => (successDiv.style.display = "none"), 3000);
-      });
-    }
     function logout() {
       document.getElementById("loginForm").style.display = "block";
       document.getElementById("messageContent").style.display = "none";
       document.getElementById("password").value = "";
-      document.getElementById("decodedSection").style.display = "none";
       document.getElementById("error").textContent = "";
     }
     function updateCurrentDate() {
@@ -386,56 +294,58 @@
     document.addEventListener("keypress", resetInactivityTimer);
     resetInactivityTimer();
 
-    // --- Comment Section Logic ---
-    function getComments() {
-      // Get saved comments (persist in localStorage)
-      return JSON.parse(localStorage.getItem('message_comments') || '[]');
+    // --- Comment Section Logic (by Message Index) ---
+    function getCommentsFor(idx) {
+      return JSON.parse(localStorage.getItem('comments_for_'+idx)||'[]');
     }
-    function saveComments(comments) {
-      localStorage.setItem('message_comments', JSON.stringify(comments));
+    function saveCommentsFor(idx, arr) {
+      localStorage.setItem('comments_for_'+idx, JSON.stringify(arr));
     }
-    function renderComments() {
-      const commentList = document.getElementById('commentList');
-      const comments = getComments();
-      if (comments.length === 0) {
-        commentList.innerHTML = '<span style="color:#aaa; font-size:0.98em;">No comments yet.</span>';
+    function renderCommentsFor(idx) {
+      const div = document.getElementById('commentList'+idx);
+      const arr = getCommentsFor(idx);
+      if(!div) return;
+      if(arr.length===0) {
+        div.innerHTML = "<span style='color:#aaa;'>No comments yet.</span>";
         return;
       }
-      commentList.innerHTML = comments.map(c =>
-        `<div class="comment-bubble">
-            ${c.text}
-            <span class="comment-meta">(${c.date})</span>
-        </div>`
-      ).join('');
+      div.innerHTML = arr.map(c=>`
+        <div class="comment-bubble">
+          ${c.text}
+          <span class="comment-meta">(${c.date})</span>
+        </div>
+      `).join('');
     }
-    document.getElementById('commentForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const commentInput = document.getElementById('commentInput');
-      const commentError = document.getElementById('commentError');
-      let comment = commentInput.value.trim();
-      if (comment.length === 0) {
-        commentError.textContent = "Please enter a word or short comment.";
-        return;
-      }
-      if (comment.length > 30) {
-        commentError.textContent = "Keep your comment under 30 characters.";
-        return;
-      }
-      // Add comment to local storage with date
-      let comments = getComments();
-      const now = new Date();
-      const dateStr = now.toLocaleDateString("en-IN", {
-        year: "numeric", month: "short", day: "numeric",
-        hour: "2-digit", minute: "2-digit"
-      }) + " IST";
-      comments.push({ text: comment, date: dateStr });
-      saveComments(comments);
-      commentInput.value = "";
-      commentError.textContent = "";
-      renderComments();
+    Array.from(document.querySelectorAll('.commentForm')).forEach(form=>{
+      const idx = form.getAttribute('data-msgidx');
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        const input = form.querySelector('input[type="text"]');
+        const errorDiv = document.getElementById('commentError'+idx);
+        let comment = input.value.trim();
+        if (comment.length === 0) {
+          errorDiv.textContent = "Please enter a word or short comment.";
+          return;
+        }
+        if (comment.length > 30) {
+          errorDiv.textContent = "Keep your comment under 30 characters.";
+          return;
+        }
+        let arr = getCommentsFor(idx);
+        const now = new Date();
+        const dateStr = now.toLocaleDateString("en-IN", {
+          year: "numeric", month: "short", day: "numeric",
+          hour: "2-digit", minute: "2-digit"
+        }) + " IST";
+        arr.push({text: comment, date: dateStr});
+        saveCommentsFor(idx, arr);
+        input.value = "";
+        errorDiv.textContent = "";
+        renderCommentsFor(idx);
+      });
+      renderCommentsFor(idx);
     });
-    // Render comments on load
-    renderComments();
+    updateCurrentDate();
   </script>
 </body>
 </html>
