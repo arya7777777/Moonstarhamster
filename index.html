@@ -134,54 +134,39 @@
       display: inline-block;
       letter-spacing: 0.04em;
     }
-    .comment-section label {
-      color: #ffd700;
-      font-weight: 600;
-      margin-bottom: 5px;
-      font-size: .99em;
+    .read-section {
+      margin: 18px 0 5px 0;
+      text-align: left;
     }
-    .comment-bubble {
-      background: rgba(40,40,60,0.97);
-      color: #ffd700;
-      margin-bottom: 7px;
-      border-radius: 7px;
-      padding: 7px 14px 7px 9px;
-      font-size: 1em;
-      display: inline-block;
-      box-shadow: 0 2px 10px #1114;
-      max-width: 92%;
-      word-break: break-word;
-    }
-    .comment-meta {
-      color: #aaa;
-      margin-left: 8px;
-      font-size: 0.93em;
-    }
-    .comment-section input[type="text"] {
-      padding: 5px 9px;
-      border-radius: 5px;
-      border: 1px solid #eee;
-      font-size: 0.98em;
-      background: #1a1a2e;
-      color: #ffd700;
-      margin-right: 5px;
-      margin-top: 5px;
-    }
-    .comment-section button[type="submit"] {
+    .mark-read-btn {
       background: #ffd700;
       color: #1e1e2f;
-      font-weight: 600;
+      font-weight: bold;
+      padding: 7px 20px;
+      font-size: 1em;
       border: none;
-      border-radius: 6px;
-      padding: 6px 14px;
-      font-size: .99em;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(255,215,0,0.14);
-      margin-top: 5px;
+      box-shadow: 0 2px 7px #ffd70099;
+      margin-right:14px;
       transition: background 0.2s;
     }
-    .comment-section button[type="submit"]:hover {
+    .mark-read-btn:hover {
       background: #ffea00;
+    }
+    .reader-list {
+      margin-top: 8px;
+      color: #bbeadd;
+      font-size: 0.97em;
+    }
+    .read-proof {
+      color: #ffd700;
+      font-weight: bold;
+    }
+    .read-date {
+      color: #aaa;
+      margin-left: 12px;
+      font-size: 0.97em;
     }
   </style>
 </head>
@@ -200,7 +185,7 @@
       <div id="error" class="error"></div>
       <div class="info">
         🔒 This portal contains all your messages with memories and wishes.<br />
-        💡 Enter the correct password to view, post, and remember.
+        💡 Enter the correct password to view and remember.
       </div>
     </div>
 
@@ -208,41 +193,31 @@
       <h1>📋 Message Memories</h1>
       <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
       <!-- Static message list starts here -->
-      <div class="message-box">
+      <div class="message-box" data-msgid="0">
         <div class="msg-date-label">🗓️ August 30, 2025</div>
         Nannnnu I'm really sorry 😔. Main time se message nahi daal paa rha , tabiyat khraab chal rhi hai kal se. I swear kal se daalunga time pe I'm really sorry jaan I'm really sorry 😔😔😔. .kya karu jaise jaise din badh rhe hai aur mushkil ho rha hai bohot yaad aati hai Nannuu , bas ab ye hai ki aapne jo bol usse thodi ummed hai , Par nannu Kaise kru, yaaad to aati hai na. Interview bi bohot baar dekh , liya bas duaa Krna mai apke birthday se pehle theek ho jaau , 🙇🏻🙇🏻🙇🏻. I misss u so much nannnnu too much 🥺🥺🥺🥺🥺🥺🥺 Ye lo appke liye chiji 🫴🏻🍫🍫🍫🍫🍫🍫🍫 Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg you nannu mere bacheee mere pyaaru cutu shone bache , meri aankho kaa taara ho na 🥺. ...
         <img src="1000742822.jpeg" class="msg-photo" alt="Photo"/>
-        <div class="comment-section">
-          <label for="commentInput0">Leave a word so I know you read it:</label>
-          <form data-msgidx="0" class="commentForm" style="margin-bottom:6px;">
-            <input type="text" required maxlength="30" id="commentInput0" placeholder="Type a word or note...">
-            <button type="submit">Send</button>
-          </form>
-          <div class="error commentError" style="margin-top:3px;" id="commentError0"></div>
-          <div class="commentList" id="commentList0"></div>
+        <div class="read-section">
+          <button class="mark-read-btn" type="button">Mark as Read</button>
+          <span class="reader-list" id="readerList0"></span>
         </div>
       </div>
-      <div class="message-box">
+      <div class="message-box" data-msgid="1">
         <div class="msg-date-label">🗓️ August 31, 2025</div>
         nannu 🥺.  bohot overthinking ho rhi hai.   please aap mere message padhke ispe react kr diya kro , and aapka phone kaafi der silent rhaa aap online bhi hote ho nannu, please aap agr Kisi se baat kr rhe ho to btaado
         <br><br>
         bohot yaad aayi h 🥺🥺🥺<br>
         aaj yha bohot baarish pad rhi hai.  andhera bi aapko hug to kiya hua hai par man me bechaini si ho rhi hai please shif ka account kholke muje message Krna kuch puchna hai nannu 
         <img src="1000742822.jpeg" class="msg-photo" alt="Photo"/>
-        <div class="comment-section">
-          <label for="commentInput1">Leave a word so I know you read it:</label>
-          <form data-msgidx="1" class="commentForm" style="margin-bottom:6px;">
-            <input type="text" required maxlength="30" id="commentInput1" placeholder="Type a word or note...">
-            <button type="submit">Send</button>
-          </form>
-          <div class="error commentError" style="margin-top:3px;" id="commentError1"></div>
-          <div class="commentList" id="commentList1"></div>
+        <div class="read-section">
+          <button class="mark-read-btn" type="button">Mark as Read</button>
+          <span class="reader-list" id="readerList1"></span>
         </div>
       </div>
       <button onclick="logout()" class="btn logout-btn" style="margin-top:16px;">🚪 Logout</button>
       <div class="info">
         🔄 Every message (with photo or not) will remain here permanently.<br>
-        💛 If you read a message, please leave a word/note in its comment box!
+        ✅ Click “Mark as Read” so I know you have seen the message!
       </div>
     </div>
   </div>
@@ -294,56 +269,38 @@
     document.addEventListener("keypress", resetInactivityTimer);
     resetInactivityTimer();
 
-    // --- Comment Section Logic (by Message Index) ---
-    function getCommentsFor(idx) {
-      return JSON.parse(localStorage.getItem('comments_for_'+idx)||'[]');
+    // --- Mark as Read logic ---
+    function getReadStatus(msgid) {
+      return JSON.parse(localStorage.getItem('read_status_'+msgid)||'null');
     }
-    function saveCommentsFor(idx, arr) {
-      localStorage.setItem('comments_for_'+idx, JSON.stringify(arr));
+    function setReadStatus(msgid, obj) {
+      localStorage.setItem('read_status_'+msgid, JSON.stringify(obj));
     }
-    function renderCommentsFor(idx) {
-      const div = document.getElementById('commentList'+idx);
-      const arr = getCommentsFor(idx);
-      if(!div) return;
-      if(arr.length===0) {
-        div.innerHTML = "<span style='color:#aaa;'>No comments yet.</span>";
-        return;
+    function renderReadStatus(msgid) {
+      const read = getReadStatus(msgid);
+      const place = document.getElementById('readerList'+msgid);
+      if(read) {
+        place.innerHTML = `<span class="read-proof">✔️ Read</span><span class="read-date">on ${read.date}</span>`;
+        document.querySelector(`.message-box[data-msgid="${msgid}"] .mark-read-btn`).disabled = true;
+        document.querySelector(`.message-box[data-msgid="${msgid}"] .mark-read-btn`).innerText = "Already Read";
+      } else {
+        place.innerHTML = `<span style="color:#aaa;">Not marked as read yet.</span>`;
       }
-      div.innerHTML = arr.map(c=>`
-        <div class="comment-bubble">
-          ${c.text}
-          <span class="comment-meta">(${c.date})</span>
-        </div>
-      `).join('');
     }
-    Array.from(document.querySelectorAll('.commentForm')).forEach(form=>{
-      const idx = form.getAttribute('data-msgidx');
-      form.addEventListener('submit',function(e){
-        e.preventDefault();
-        const input = form.querySelector('input[type="text"]');
-        const errorDiv = document.getElementById('commentError'+idx);
-        let comment = input.value.trim();
-        if (comment.length === 0) {
-          errorDiv.textContent = "Please enter a word or short comment.";
-          return;
-        }
-        if (comment.length > 30) {
-          errorDiv.textContent = "Keep your comment under 30 characters.";
-          return;
-        }
-        let arr = getCommentsFor(idx);
-        const now = new Date();
-        const dateStr = now.toLocaleDateString("en-IN", {
-          year: "numeric", month: "short", day: "numeric",
-          hour: "2-digit", minute: "2-digit"
-        }) + " IST";
-        arr.push({text: comment, date: dateStr});
-        saveCommentsFor(idx, arr);
-        input.value = "";
-        errorDiv.textContent = "";
-        renderCommentsFor(idx);
+    document.addEventListener('DOMContentLoaded',function() {
+      Array.from(document.querySelectorAll('.message-box')).forEach(box=>{
+        const msgid = box.getAttribute('data-msgid');
+        renderReadStatus(msgid);
+        box.querySelector('.mark-read-btn').addEventListener('click', function(){
+          const now = new Date();
+          const dateStr = now.toLocaleDateString("en-IN", {
+            year: "numeric", month: "short", day: "numeric",
+            hour: "2-digit", minute: "2-digit"
+          }) + " IST";
+          setReadStatus(msgid,{date:dateStr});
+          renderReadStatus(msgid);
+        });
       });
-      renderCommentsFor(idx);
     });
     updateCurrentDate();
   </script>
