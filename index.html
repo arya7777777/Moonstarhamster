@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,39 +135,10 @@
       display: inline-block;
       letter-spacing: 0.04em;
     }
-    .read-section {
-      margin: 18px 0 5px 0;
-      text-align: left;
-    }
-    .mark-read-btn {
-      background: #ffd700;
-      color: #1e1e2f;
-      font-weight: bold;
-      padding: 7px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 2px 7px #ffd70099;
-      margin-right:14px;
-      transition: background 0.2s;
-    }
-    .mark-read-btn:hover {
-      background: #ffea00;
-    }
-    .reader-list {
-      margin-top: 8px;
-      color: #bbeadd;
-      font-size: 0.97em;
-    }
-    .read-proof {
-      color: #ffd700;
-      font-weight: bold;
-    }
-    .read-date {
-      color: #aaa;
-      margin-left: 12px;
-      font-size: 0.97em;
+    .message-like-section {
+      margin-top: 22px;
+      margin-bottom: 5px;
+      text-align: center;
     }
   </style>
 </head>
@@ -193,32 +165,34 @@
       <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
 
       <!-- Message 1 -->
-      <div class="message-box" data-msgid="0">
+      <div class="message-box">
         <div class="msg-date-label">🗓️ August 30, 2025</div>
         Nannnnu I'm really sorry 😔. Main time se message nahi daal paa rha , tabiyat khraab chal rhi hai kal se. I swear kal se daalunga time pe I'm really sorry jaan I'm really sorry 😔😔😔. .kya karu jaise jaise din badh rhe hai aur mushkil ho rha hai bohot yaad aati hai Nannuu , bas ab ye hai ki aapne jo bol usse thodi ummed hai , Par nannu Kaise kru, yaaad to aati hai na. Interview bi bohot baar dekh , liya bas duaa Krna mai apke birthday se pehle theek ho jaau , 🙇🏻🙇🏻🙇🏻. I misss u so much nannnnu too much 🥺🥺🥺🥺🥺🥺🥺 Ye lo appke liye chiji 🫴🏻🍫🍫🍫🍫🍫🍫🍫 Nannu please unhealthy kuch mat khana please and apna dhyaan rkhna okay I beg you nannu mere bacheee mere pyaaru cutu shone bache , meri aankho kaa taara ho na 🥺. ...
         <img src="1000742822.jpeg" class="msg-photo" alt="Photo"/>
-        <div class="read-section">
-          <button class="mark-read-btn" type="button">Mark as Read</button>
-          <span class="reader-list" id="readerList0"></span>
+        <div class="message-like-section">
+          <!-- LikeBtn.com BEGIN -->
+          <span class="likebtn-wrapper" data-theme="custom" data-icon_l="str1" data-ef_voting="bounce" data-identifier="item_1"></span>
+          <!-- LikeBtn.com END -->
         </div>
       </div>
 
       <!-- Message 2 -->
-      <div class="message-box" data-msgid="1">
+      <div class="message-box">
         <div class="msg-date-label">🗓️ August 31, 2025</div>
         nannu 🥺.  bohot overthinking ho rhi hai.   please aap mere message padhke ispe react kr diya kro , and aapka phone kaafi der silent rhaa aap online bhi hote ho nannu, please aap agr Kisi se baat kr rhe ho to btaado
         <br><br>
         bohot yaad aayi h 🥺🥺🥺<br>
         aaj yha bohot baarish pad rhi hai.  andhera bi aapko hug to kiya hua hai par man me bechaini si ho rhi hai please shif ka account kholke muje message Krna kuch puchna hai nannu 
         <img src="1000742822.jpeg" class="msg-photo" alt="Photo"/>
-        <div class="read-section">
-          <button class="mark-read-btn" type="button">Mark as Read</button>
-          <span class="reader-list" id="readerList1"></span>
+        <div class="message-like-section">
+          <!-- LikeBtn.com BEGIN -->
+          <span class="likebtn-wrapper" data-theme="custom" data-icon_l="str1" data-ef_voting="bounce" data-identifier="item_2"></span>
+          <!-- LikeBtn.com END -->
         </div>
       </div>
 
       <!-- Message 3 (new for 1st September 2025) -->
-      <div class="message-box" data-msgid="2">
+      <div class="message-box">
         <div class="msg-date-label">🗓️ September 1, 2025</div>
         1st September 2025, My Nannu's Birthday Month, very Special Month to me.<br>
         I wish you a very long and happy and healthy Life mera pyaaaraa bchaaaa.<br><br>
@@ -228,19 +202,21 @@
         Nannu...idk kuch bol nhi jaa rhaaa.<br>
         Happy Birthday Month mere Zuvuuuuuuuu mere pyaare bachee pyaaruu.<br>
         <img src="1000742822.jpeg" class="msg-photo" alt="Photo"/>
-        <div class="read-section">
-          <button class="mark-read-btn" type="button">Mark as Read</button>
-          <span class="reader-list" id="readerList2"></span>
+        <div class="message-like-section">
+          <!-- LikeBtn.com BEGIN -->
+          <span class="likebtn-wrapper" data-theme="custom" data-icon_l="str1" data-ef_voting="bounce" data-identifier="item_3"></span>
+          <!-- LikeBtn.com END -->
         </div>
       </div>
 
       <button onclick="logout()" class="btn logout-btn" style="margin-top:16px;">🚪 Logout</button>
       <div class="info">
         🔄 Every message (with photo or not) will remain here permanently.<br>
-        ✅ Click “Mark as Read” so I know you have seen the message!
+        ⭐ Show your support with a Like!
       </div>
     </div>
   </div>
+  <!-- LikeBtn.com Script (include just ONCE after your content) -->
   <script>
     const CORRECT_PASSWORD = "MOONSTAR131";
     function checkPassword(event) {
@@ -288,41 +264,15 @@
     document.addEventListener("click", resetInactivityTimer);
     document.addEventListener("keypress", resetInactivityTimer);
     resetInactivityTimer();
-
-    // --- Mark as Read logic ---
-    function getReadStatus(msgid) {
-      return JSON.parse(localStorage.getItem('read_status_'+msgid)||'null');
-    }
-    function setReadStatus(msgid, obj) {
-      localStorage.setItem('read_status_'+msgid, JSON.stringify(obj));
-    }
-    function renderReadStatus(msgid) {
-      const read = getReadStatus(msgid);
-      const place = document.getElementById('readerList'+msgid);
-      if(read) {
-        place.innerHTML = `<span class="read-proof">✔️ Read</span><span class="read-date">on ${read.date}</span>`;
-        document.querySelector(`.message-box[data-msgid="${msgid}"] .mark-read-btn`).disabled = true;
-        document.querySelector(`.message-box[data-msgid="${msgid}"] .mark-read-btn`).innerText = "Already Read";
-      } else {
-        place.innerHTML = `<span style="color:#aaa;">Not marked as read yet.</span>`;
-      }
-    }
-    document.addEventListener('DOMContentLoaded',function() {
-      Array.from(document.querySelectorAll('.message-box')).forEach(box=>{
-        const msgid = box.getAttribute('data-msgid');
-        renderReadStatus(msgid);
-        box.querySelector('.mark-read-btn').addEventListener('click', function(){
-          const now = new Date();
-          const dateStr = now.toLocaleDateString("en-IN", {
-            year: "numeric", month: "short", day: "numeric",
-            hour: "2-digit", minute: "2-digit"
-          }) + " IST";
-          setReadStatus(msgid,{date:dateStr});
-          renderReadStatus(msgid);
-        });
-      });
-    });
-    updateCurrentDate();
+  </script>
+  <!-- LikeBtn.com Script loaded only ONCE at end -->
+  <script>
+    (function(d,e,s){
+      if(d.getElementById("likebtn_wjs"))return;
+      var a=d.createElement(e),m=d.getElementsByTagName(e)[0];
+      a.async=1;a.id="likebtn_wjs";
+      a.src=s;m.parentNode.insertBefore(a, m)
+    })(document,"script","//w.likebtn.com/js/w/widget.js");
   </script>
 </body>
   </html>
