@@ -5,140 +5,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🌙✨ Hamster's Secure Message Portal 🐹</title>
   <style>
-    html, body {
-      margin: 0; padding: 0; box-sizing: border-box;
-      width: 100vw; height: 100vh; min-height: 100vh; min-width:100vw;
-      background: #181836;
-      overflow-x: hidden;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box;}
     body {
-      display: flex; align-items: center; justify-content: center; min-height: 100vh; color: #eee;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0b3d91 0%, #1e1e2f 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #eee;
     }
     .container {
-      background: rgba(30, 30, 47, 0.97);
-      padding: 18px 0 34px 0;
-      border-radius: 22px;
-      box-shadow: 0 18px 40px #000a;
-      max-width: 99vw; width: 98vw;
-      max-height: 96vh;
+      background: rgba(30, 30, 47, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+      max-width: 600px;
+      width: 90vw;
       text-align: center;
       position: relative;
-      z-index: 2;
     }
-    h1 { color: #ffd700; text-shadow: 0 0 8px #fff, 0 0 25px #ffd700; margin-bottom: 18px; }
-    .message-box {
-      margin: 0 auto;
-      color: #ffe487;
-      font-size: 1.14em;
-      font-family: 'Courier New', monospace;
-      text-align: left;
-      padding: 10px 12px;
-      max-width: 480px;
-      background: none;
-      box-shadow: none;
+    h1 {
+      margin-bottom: 25px;
+      font-size: 2.5em;
+      color: #ffd700;
+      text-shadow: 0 0 8px #fff, 0 0 25px #ffd700;
     }
-    .msg-date-label {
-      color: #ffe48b;
-      font-size: 1.12em;
-      font-weight: bold;
-      margin-bottom: 10px;
-      display: block;
+    .emoji-stars { font-size: 1.2em; margin-bottom: 18px; }
+    .input-group { margin-bottom: 20px; text-align: left; color: #ccc; }
+    label { font-weight: bold; display: block; margin-bottom: 6px;}
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: #1a1a2e;
+      color: #fff;
+      box-shadow: inset 0 0 8px #444;
+      transition: box-shadow 0.3s;
     }
-    .msg-photo {
-      display: block;
-      width: 98vw;
-      max-width: 480px;
-      max-height: 69vh;
-      height: auto;
-      margin: 18px auto 18px auto;
-      border-radius: 18px;
-      box-shadow: 0 2px 18px #000b;
-      object-fit: contain;
-      background: #272748;
-    }
-    .message-like-section {
-      text-align: center;
-      margin: 17px 0 2px 0;
-    }
-    .info {
-      font-size: 0.95em;
-      color: #aaa;
-      margin-top: 15px;
-      text-align: center;
-      line-height: 1.4;
-    }
-    button.btn, .logout-btn {
+    input[type="password"]:focus { box-shadow: inset 0 0 12px #ffd700; }
+    button.btn {
       background: #ffd700;
       color: #1e1e2f;
       font-weight: bold;
-      padding: 12px 26px;
-      font-size: 17px;
+      padding: 15px 30px;
+      font-size: 18px;
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      margin: 16px 7px 0 7px;
-      box-shadow: 0 5px 15px rgba(255,215,0,0.35);
       transition: background 0.3s;
+      margin: 10px 7px;
+      box-shadow: 0 5px 15px rgba(255,215,0,0.7);
     }
-    button.btn:hover, .logout-btn:hover {
+    button.btn:hover {
       background: #ffea00;
+      box-shadow: 0 8px 20px rgba(255,235,20,0.9);
+      transform: translateY(-2px);
     }
-    /* Hearts Animation */
-    .hearts-bg {
-      pointer-events: none;
-      position: fixed;
-      z-index: 0;
-      width: 100vw; height: 100vh;
-      left: 0; top: 0;
-      overflow: hidden;
+    .error {
+      color: #ff4040;
+      margin-top: 12px;
+      font-weight: 700;
+      text-shadow: 0 0 6px #ff0000;
+      text-align:center;
     }
-    .hearts-bg .heart {
-      position: absolute;
-      width: 30px; height: 30px;
-      background: linear-gradient(45deg,#ffb6c1,#ff69b4 68%, #ffdde4 96%);
-      opacity: 0.48;
-      border-radius: 50% 50% 50% 50% / 60% 60% 35% 35%;
-      animation: floatHeart 10s linear infinite;
-      filter: blur(0.5px) drop-shadow(0 2px 8px #f36b9e66);
-      pointer-events:none;
+    .info {
+      font-size: 0.9em;
+      margin-top: 15px;
+      color: #aaa;
+      line-height: 1.4;
     }
-    .hearts-bg .heart:before,
-    .hearts-bg .heart:after {
-      content: '';
-      position: absolute;
-      width: 30px; height: 30px;
-      background: inherit;
-      border-radius: 50%;
+    .logout-btn {
+      background: #ff4646;
+      box-shadow: 0 4px 10px rgba(255, 70, 70, 0.8);
     }
-    .hearts-bg .heart:before {
-      left: -15px; top: 0;
+    .logout-btn:hover {
+      background: #ff2a2a;
+      box-shadow: 0 6px 15px rgba(255, 50, 50, 0.9);
     }
-    .hearts-bg .heart:after {
-      top: -15px; left: 0;
+    .date-info {
+      background: #1e1e3e;
+      border-radius: 8px;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 1.05em;
+      text-shadow: 0 0 4px #555;
+      color: #f0e68c;
     }
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(110vh) scale(0.6) rotate(-20deg);
-        opacity: 0;
+    .message-content { display: none; }
+    .message-box {
+      background: #222244;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 24px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.13em;
+      color: #f0e68c;
+      box-shadow: 0 4px 18px #0007;
+      min-height: 80px;
+      text-align: left;
+      position: relative;
+      word-break: break-word;
+    }
+    .msg-date-label {
+      color:#ffd700;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      font-size: 1.09em;
+      margin-bottom: 12px;
+      display: inline-block;
+      letter-spacing: 0.04em;
+    }
+    .msg-photo {
+      margin: 24px auto 0 auto;
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 3px 18px #000b;
+      background: #232333;
+      aspect-ratio: 9/16;
+      object-fit: cover;
+      min-height: 340px;
+    }
+    .message-like-section {
+      margin-top: 24px;
+      margin-bottom: 3px;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .msg-photo { min-height: 190px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="loginForm" class="login-form">
+      <h1>🌙✨ Hamster's Secure Message Portal 🐹</h1>
+      <div class="emoji-stars">🌟🌙⭐🐹✨🌙⭐🌟🐹✨🌙⭐</div>
+      <form onsubmit="checkPassword(event)">
+        <div class="input-group">
+          <label for="password">Enter Password:</label>
+          <input type="password" id="password" autocomplete="off" required />
+        </div>
+        <button type="submit" class="btn">Access Messages</button>
+      </form>
+      <div id="error" class="error"></div>
+      <div class="info">
+        🔒 This portal contains all your messages with memories and wishes.<br />
+        💡 Enter the correct password to view, post, and remember.
+      </div>
+    </div>
+    <div id="messageContent" class="message-content" style="display: none;">
+      <h1>📋 Message Memories</h1>
+      <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
+      <!-- Only One Message -->
+      <div class="message-box">
+        <div class="msg-date-label">🗓️ September 2, 2025</div>
+NANNUU Thank you so much bchaa muje message krne ke liye i don't know how to thank you    aap ne muje daanta b 😭😭  muje bohot acha lgta h par darr b lgta hai aagat aap zyada naaraz hue to??   aap maante b nhi ho jaldi nannu   , par nannu aapko ptaa h bohot kam din bache hai apke birthday pe  bohot tension ho rhi h please nannu duaa krna sab theek rhe im really sorry bchaa 🥺🥺🥺 neri jaaan, mere zuvuu aapke liye kuch likha h :- i don't know kaisa h but dil se likha tha  fir translate kraa kashmiri language me 
+        Mey roz suh chu taamis varay vuchhs khayaal manz.
+Saari raat mey aanz nish chu na vuchhon neind.
+Tund yaad chu varay varay wapas aawun,
+varay varay…
+Mey neind chu door gashan raat bhar,
+sirf tund yaad,
+sirf tu.
+Mehrbaani kar, zald wapas aaw.
+        <div class="message-like-section">
+          <!-- LikeBtn.com BEGIN -->
+          <span class="likebtn-wrapper" data-theme="custom" data-icon_l="str1" data-ef_voting="bounce" data-identifier="item_1"></span>
+          <!-- LikeBtn.com END -->
+        </div>
+      </div>
+      <button onclick="logout()" class="btn logout-btn" style="margin-top:16px;">🚪 Logout</button>
+      <div class="info">
+        ⭐ Show your support with a Like!<br>
+        🖼️ Photo is always visible and best quality.
+      </div>
+    </div>
+  </div>
+  <!-- LikeBtn.com Script (include just ONCE after your content) -->
+  <script>
+    const CORRECT_PASSWORD = "MOONSTAR131";
+    function checkPassword(event) {
+      event.preventDefault();
+      const entered = document.getElementById("password").value;
+      const errorDiv = document.getElementById("error");
+      if (entered === CORRECT_PASSWORD) {
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("messageContent").style.display = "block";
+        updateCurrentDate();
+        errorDiv.textContent = "";
+      } else {
+        errorDiv.textContent = "❌ Incorrect password. Please try again.";
+        document.getElementById("password").value = "";
       }
-      12% { opacity: 0.4;}
-      45% { opacity: 0.58;}
-      82% { opacity: 0.12;}
-      100% {
-        transform: translateY(-12vh) scale(1.18) rotate(20deg);
-        opacity:0;
-      }
     }
-    /* Floating Messages */
-    .floating-words-bg {
-      pointer-events: none;
-      position: fixed;
-      left: 0; top: 0; width: 100vw; height: 100vh;
-      z-index: 1;
-      font-family: cursive, sans-serif;
+    function logout() {
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("messageContent").style.display = "none";
+      document.getElementById("password").value = "";
+      document.getElementById("error").textContent = "";
     }
-    .floating-words-bg span {
-      position: absolute;
-      font-size: 1.14em;
-      font-family: 'Segoe Script', 'Comic Sans
-  
+    function updateCurrentDate() {
+      const now = new Date();
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "Asia/Kolkata",
+      };
+      document.getElementById("currentDate").textContent = now.toLocaleDateString("en-IN", options) + " IST";
+    }
+    let inactivityTimer;
+    function resetInactivityTimer() {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
+        if (document.getElementById("messageContent").style.display === "block") {
+          logout();
+          alert("⏰ Session expired due to inactivity. Please login again.");
+        }
+      }, 30 * 60 * 1000);
+    }
+    document.addEventListener("click", resetInactivityTimer);
+    document.addEventListener("keypress", resetInactivityTimer);
+    resetInactivityTimer();
+  </script>
+  <!-- LikeBtn.com Script loaded only ONCE at end -->
+  <script>
+    (function(d,e,s){
+      if(d.getElementById("likebtn_wjs"))return;
+      var a=d.createElement(e),m=d.getElementsByTagName(e)[0];
+      a.async=1;a.id="likebtn_wjs";
+      a.src=s;m.parentNode.insertBefore(a, m)
+    })(document,"script","//w.likebtn.com/js/w/widget.js");
+  </script>
+</body>
+                                                                            </html>
+
+
+ 
+
