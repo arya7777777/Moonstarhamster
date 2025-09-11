@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🌙✨ Hamster's Secure Message Portal 🐹</title>
   <style>
+    /* ...your existing CSS (unchanged)... */
     * { margin: 0; padding: 0; box-sizing: border-box;}
     body {
       font-family: Arial, sans-serif;
@@ -232,7 +233,7 @@
     document.addEventListener('keypress', resetInactivityTimer);
     resetInactivityTimer();
 
-    // Firebase feedback box logic loaded only after login
+    // Fixed Feedback box logic:
     function loadFirebaseFeedback() {
       const script = document.createElement('script');
       script.type = "module";
