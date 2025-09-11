@@ -16,12 +16,12 @@
       color: #eee;
     }
     .container {
-      background: rgba(30, 30, 47, 0.95);
+      background: rgba(30, 30, 47, 0.96);
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-      max-width: 600px;
-      width: 90vw;
+      max-width: 650px;
+      width: 97vw;
       text-align: center;
       position: relative;
     }
@@ -120,24 +120,144 @@
       display: inline-block;
       letter-spacing: 0.04em;
     }
-    .msg-photo {
-      margin: 24px auto 0 auto;
-      display: block;
-      max-width: 100%;
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 3px 18px #000b;
-      background: #232333;
-      aspect-ratio: 9/16;
-      object-fit: cover;
-      min-height: 340px;
+    /* --- Feedback Box Styles --- */
+    .feedback-section {
+      margin: 40px 0 0 0;
+      background: rgba(40,40,60,0.98);
+      border: 2px solid #ffd70044;
+      border-radius: 17px;
+      box-shadow: 0 4px 30px #111b;
+      padding: 28px 16px 18px 16px;
+      width: 98%;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      text-align: left;
     }
-    .message-like-section {
-      margin-top: 24px;
+    .feedback-heading {
+      color: #ffd700;
+      font-size: 1.25em;
+      text-shadow: 0 0 8px #fff7, 0 0 15px #ffd70077;
+      margin-bottom: 7px;
+      letter-spacing:1px;
+      font-weight: 700;
+    }
+    .feedback-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 17px;
+    }
+    .feedback-form textarea {
+      flex: 5 1 260px;
+      font-size: 1em;
+      border-radius:10px; 
+      min-height: 38px; 
+      padding: 8px 10px; 
+      color:#222244;
+      background-color: #fffac3;
+      border: 2px solid #ffd70090;
+      outline:none;
+      resize: vertical;
+    }
+    .feedback-form button {
+      flex: 1 1 80px;
+      font-size: 1.06em;
+      padding:11px 15px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(90deg, #ffd700 80%, #fcf8e2 100%);
+      color: #252550;
+      font-weight: bold;
+      box-shadow: 0 4px 11px #ffd70020;
+      cursor: pointer;
+      transition: background 0.32s, color 0.26s;
+    }
+    .feedback-form button:hover { background:#fff6a1; color:#1e1e2f; }
+    .feedback-list { margin-top: 15px; }
+    .feedback-item {
+      background: #292946;
+      border-radius: 13px;
+      box-shadow: 0 2px 10px #000a;
+      color: #fffbe0;
+      margin-bottom: 18px;
+      padding: 16px 18px 10px 14px;
+      position: relative;
+      border-left: 4px solid #ffd700;
+      animation: feedbackIn 0.6s cubic-bezier(.51,.93,.38,1.43);
+    }
+    .feedback-meta {
       margin-bottom: 3px;
-      text-align: center;
+      font-size: 0.97em;
+      color: #ffd900;
+      font-weight: bold;
+      letter-spacing:.04em;
+      opacity: .88;
+      display: flex;
+      justify-content: space-between;
+    }
+    .feedback-content { margin-left: 8px; font-size: 1.12em; word-break: break-word;}
+    .reply-btn {
+      background: #fffac3;
+      color: #232333;
+      padding: 3px 13px;
+      font-size: 0.98em;
+      border-radius: 7px;
+      border: none;
+      margin-top:8px;
+      margin-right:7px;
+      cursor: pointer;
+      box-shadow: 0 1px 4px #ffd70066;
+      font-weight: 600;
+      transition: background 0.18s;
+    }
+    .reply-btn:hover { background: #ffd700; color:#111; }
+    .reply-list { margin-top: 7px; margin-left: 17px; }
+    .reply-item {
+      background: #443b5e;
+      color: #fff6a8;
+      border-radius: 9px;
+      margin: 6px 0 0 0;
+      padding: 9px 10px 5px 10px;
+      font-size: 0.99em;
+      box-shadow: 0 1px 6px #0005;
+      border-left: 3px solid #ffd700bb;
+      animation: feedbackIn 0.46s linear;
+    }
+    .reply-meta { color:#ffd700; font-size:.94em; font-weight:bold; }
+    .reply-form-area {
+      display: flex; gap:10px; margin-top:7px;
+    }
+    .reply-form-area textarea {
+      flex:5 1 120px;
+      min-height: 28px;
+      border-radius:8px;
+      outline:none;
+      background:#fffbe8;
+      color:#28284b;
+      border: 1.7px solid #ffd70042;
+    }
+    .reply-form-area button {
+      flex:1 1 60px;
+      font-size:0.98em;
+      font-weight:700;
+      border-radius:8px;
+      background: #ffd700;
+      color:#232333;
+      border: none;
+      cursor:pointer;
+      box-shadow:0 1px 5px #ffd70055;
+      margin-left: 3px;
+    }
+    @keyframes feedbackIn {
+      from {opacity:.23; transform:translateY(25px) scale(.97);}
+      to {opacity:1; transform:none;}
     }
     @media (max-width: 600px) {
+      .container {padding: 9vw 1.1vw;}
+      .feedback-section{padding:10vw 2vw;}
       .msg-photo { min-height: 190px; }
     }
   </style>
@@ -163,26 +283,19 @@
     <div id="messageContent" class="message-content" style="display: none;">
       <h1>📋 Message Memories</h1>
       <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
-      <!-- Only One Message -->
-     <div class="message-box">
-  <div class="msg-date-label">🗓️ September 7, 2025</div>
-  nannuu  atleast reply hi kr dete us message pe!  kuch likh dete, Shif ke phone ze late night online the us time likh dete kuch   , mai daily baat ke liye nhi bol rha hu atleast jab mujhe ye sab question ho tab answer de diya kro I know aap busy ho,     par nannu complain ke baad bhi aapne silent nhi kiya, shif ka account b nhi dekha?  ulta message ko dislike kr diya but message mujhe nhi kiya?   11:30 tak tha apke pass phone but fir b u chose not to Text me  , nannu jo b mann me hai please btaado and aap khud hi khola kro message please don't tell anyone else to open the message and like ,  vo apke liye likha jaata hai
-  
-    </a>
-  </div>
-
-  <div class="message-like-section">
-    <!-- LikeBtn.com BEGIN -->
-    <span class="likebtn-wrapper" data-theme="custom" data-icon_l="str1" data-ef_voting="bounce" data-identifier="item_1"></span>
-    <!-- LikeBtn.com END -->
-  </div>
-</div>
-
-        <div class="message-like-section">
-          <!-- LikeBtn.com BEGIN -->
-          <span class="likebtn-wrapper" data-theme="custom" data-icon_l="str1" data-ef_voting="bounce" data-identifier="item_1"></span>
-          <!-- LikeBtn.com END -->
-        </div>
+      <!-- Main Message -->
+      <div class="message-box">
+        <div class="msg-date-label">🗓️ September 7, 2025</div>
+        nannuu atleast reply hi kr dete us message pe! kuch likh dete, Shif ke phone ze late night online the us time likh dete kuch, mai daily baat ke liye nhi bol rha hu atleast jab mujhe ye sab question ho tab answer de diya kro I know aap busy ho, par nannu complain ke baad bhi aapne silent nhi kiya, shif ka account b nhi dekha? ulta message ko dislike kr diya but message mujhe nhi kiya? 11:30 tak tha apke pass phone but fir b u chose not to Text me, nannu jo b mann me hai please btaado and aap khud hi khola kro message please don't tell anyone else to open the message and like, vo apke liye likha jaata hai
+      </div>
+      <!-- Feedback Section -->
+      <div class="feedback-section">
+        <div class="feedback-heading">🌙 Leave a Feedback or Reply</div>
+        <form class="feedback-form" onsubmit="addFeedback(event)">
+          <textarea id="feedbackInput" placeholder="Share your thoughts, memories, or feedback..." required></textarea>
+          <button type="submit">Post</button>
+        </form>
+        <div id="feedbackList" class="feedback-list"></div>
       </div>
       <button onclick="logout()" class="btn logout-btn" style="margin-top:16px;">🚪 Logout</button>
       <div class="info">
@@ -191,9 +304,9 @@
       </div>
     </div>
   </div>
-  <!-- LikeBtn.com Script (include just ONCE after your content) -->
   <script>
     const CORRECT_PASSWORD = "MOONSTAR131";
+
     function checkPassword(event) {
       event.preventDefault();
       const entered = document.getElementById("password").value;
@@ -239,15 +352,71 @@
     document.addEventListener("click", resetInactivityTimer);
     document.addEventListener("keypress", resetInactivityTimer);
     resetInactivityTimer();
-  </script>
-  <!-- LikeBtn.com Script loaded only ONCE at end -->
-  <script>
-    (function(d,e,s){
-      if(d.getElementById("likebtn_wjs"))return;
-      var a=d.createElement(e),m=d.getElementsByTagName(e)[0];
-      a.async=1;a.id="likebtn_wjs";
-      a.src=s;m.parentNode.insertBefore(a, m)
-    })(document,"script","//w.likebtn.com/js/w/widget.js");
+
+    // ----- Feedback/Comment Box Logic -----
+    let feedbackCounter = 0;
+    const feedbackList = document.getElementById('feedbackList');
+    function formatDate(d) {
+      return d.toLocaleDateString("en-IN", { year: 'numeric', month: 'long', day: 'numeric'}) + 
+        " " + d.toLocaleTimeString("en-IN", { hour: '2-digit', minute: '2-digit' });
+    }
+    function addFeedback(event) {
+      event.preventDefault();
+      const textarea = document.getElementById("feedbackInput");
+      const text = textarea.value.trim();
+      if (!text) return;
+      feedbackCounter++;
+      const now = new Date();
+      const feedbackId = `feedback${feedbackCounter}_${now.getTime()}`;
+      const feedbackHtml = `
+        <div class="feedback-item" id="${feedbackId}">
+          <div class="feedback-meta">
+            <span>Visitor</span>
+            <span title="${now.toISOString()}">🕒 ${formatDate(now)}</span>
+          </div>
+          <div class="feedback-content">${escapeHTML(text)}</div>
+          <button type="button" class="reply-btn" onclick="showReplyForm('${feedbackId}')">Reply</button>
+          <div class="reply-list" id="${feedbackId}-replies"></div>
+          <div class="reply-form-area d-none" id="${feedbackId}-form">
+            <textarea placeholder="Write a reply..."></textarea>
+            <button onclick="postReply('${feedbackId}')">Reply</button>
+          </div>
+        </div>
+      `;
+      feedbackList.insertAdjacentHTML("afterbegin", feedbackHtml);
+      textarea.value = "";
+    }
+    function escapeHTML(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML.replace(/\n/g,'<br>');
+    }
+    function showReplyForm(fid) {
+      const form = document.getElementById(fid+"-form");
+      if(form) form.classList.toggle("d-none");
+    }
+    function postReply(fid) {
+      const form = document.getElementById(fid+"-form");
+      const replyList = document.getElementById(fid+"-replies");
+      const textarea = form.querySelector("textarea");
+      const reply = textarea.value.trim();
+      if (!reply) return;
+      const now = new Date();
+      const replyHtml = `
+        <div class="reply-item">
+          <div class="reply-meta">Visitor • 🕒 ${formatDate(now)}</div>
+          <div class="reply-content">${escapeHTML(reply)}</div>
+        </div>
+      `;
+      replyList.insertAdjacentHTML("beforeend", replyHtml);
+      textarea.value = "";
+      form.classList.add("d-none");
+    }
+    // Global export for onclicks (avoid strict CSP issues on static page)
+    window.addFeedback = addFeedback;
+    window.showReplyForm = showReplyForm;
+    window.postReply = postReply;
   </script>
 </body>
-                    
+            </html>
+            
