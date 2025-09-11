@@ -120,145 +120,19 @@
       display: inline-block;
       letter-spacing: 0.04em;
     }
-    /* --- Feedback Box Styles --- */
-    .feedback-section {
-      margin: 40px 0 0 0;
-      background: rgba(40,40,60,0.98);
-      border: 2px solid #ffd70044;
-      border-radius: 17px;
-      box-shadow: 0 4px 30px #111b;
-      padding: 28px 16px 18px 16px;
-      width: 98%;
-      max-width: 580px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      text-align: left;
-    }
-    .feedback-heading {
-      color: #ffd700;
-      font-size: 1.25em;
+    .feedback-section { margin-top: 40px;}
+    .feedback-heading { 
+      color: #ffd700; font-size: 1.25em;
       text-shadow: 0 0 8px #fff7, 0 0 15px #ffd70077;
-      margin-bottom: 7px;
-      letter-spacing:1px;
-      font-weight: 700;
-    }
-    .feedback-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 17px;
-    }
-    .feedback-form textarea {
-      flex: 5 1 260px;
-      font-size: 1em;
-      border-radius:10px; 
-      min-height: 38px; 
-      padding: 8px 10px; 
-      color:#222244;
-      background-color: #fffac3;
-      border: 2px solid #ffd70090;
-      outline:none;
-      resize: vertical;
-    }
-    .feedback-form button {
-      flex: 1 1 80px;
-      font-size: 1.06em;
-      padding:11px 15px;
-      border-radius: 8px;
-      border: none;
-      background: linear-gradient(90deg, #ffd700 80%, #fcf8e2 100%);
-      color: #252550;
-      font-weight: bold;
-      box-shadow: 0 4px 11px #ffd70020;
-      cursor: pointer;
-      transition: background 0.32s, color 0.26s;
-    }
-    .feedback-form button:hover { background:#fff6a1; color:#1e1e2f; }
-    .feedback-list { margin-top: 15px; }
-    .feedback-item {
-      background: #292946;
-      border-radius: 13px;
-      box-shadow: 0 2px 10px #000a;
-      color: #fffbe0;
-      margin-bottom: 18px;
-      padding: 16px 18px 10px 14px;
-      position: relative;
-      border-left: 4px solid #ffd700;
-      animation: feedbackIn 0.6s cubic-bezier(.51,.93,.38,1.43);
-    }
-    .feedback-meta {
-      margin-bottom: 3px;
-      font-size: 0.97em;
-      color: #ffd900;
-      font-weight: bold;
-      letter-spacing:.04em;
-      opacity: .88;
-      display: flex;
-      justify-content: space-between;
-    }
-    .feedback-content { margin-left: 8px; font-size: 1.12em; word-break: break-word;}
-    .reply-btn {
-      background: #fffac3;
-      color: #232333;
-      padding: 3px 13px;
-      font-size: 0.98em;
-      border-radius: 7px;
-      border: none;
-      margin-top:8px;
-      margin-right:7px;
-      cursor: pointer;
-      box-shadow: 0 1px 4px #ffd70066;
-      font-weight: 600;
-      transition: background 0.18s;
-    }
-    .reply-btn:hover { background: #ffd700; color:#111; }
-    .reply-list { margin-top: 7px; margin-left: 17px; }
-    .reply-item {
-      background: #443b5e;
-      color: #fff6a8;
-      border-radius: 9px;
-      margin: 6px 0 0 0;
-      padding: 9px 10px 5px 10px;
-      font-size: 0.99em;
-      box-shadow: 0 1px 6px #0005;
-      border-left: 3px solid #ffd700bb;
-      animation: feedbackIn 0.46s linear;
-    }
-    .reply-meta { color:#ffd700; font-size:.94em; font-weight:bold; }
-    .reply-form-area {
-      display: flex; gap:10px; margin-top:7px;
-    }
-    .reply-form-area textarea {
-      flex:5 1 120px;
-      min-height: 28px;
-      border-radius:8px;
-      outline:none;
-      background:#fffbe8;
-      color:#28284b;
-      border: 1.7px solid #ffd70042;
-    }
-    .reply-form-area button {
-      flex:1 1 60px;
-      font-size:0.98em;
-      font-weight:700;
-      border-radius:8px;
-      background: #ffd700;
-      color:#232333;
-      border: none;
-      cursor:pointer;
-      box-shadow:0 1px 5px #ffd70055;
-      margin-left: 3px;
-    }
-    @keyframes feedbackIn {
-      from {opacity:.23; transform:translateY(25px) scale(.97);}
-      to {opacity:1; transform:none;}
-    }
-    @media (max-width: 600px) {
-      .container {padding: 9vw 1.1vw;}
-      .feedback-section{padding:10vw 2vw;}
-    }
+      margin-bottom: 12px; font-weight: 700;}
+    .feedback-list {margin-bottom:32px;}
+    .feedback-item { background: #292946; border-radius:13px; box-shadow:0 2px 10px #000a; color:#fffbe0; margin-bottom:18px; padding:16px 18px 10px 14px; position:relative; border-left:4px solid #ffd700;}
+    .feedback-meta {margin-bottom:3px; font-size:0.97em; color:#ffd900; font-weight:bold; letter-spacing:.04em; opacity:.88;}
+    .feedback-content {margin-left:8px; font-size:1.12em; word-break:break-word;}
+    .reply-btn { background:#fffac3; color:#232333; padding:3px 13px; font-size:0.98em; border-radius:7px; border:none; margin-top:8px; margin-right:7px; cursor:pointer; box-shadow:0 1px 4px #ffd70066; font-weight:600; transition:background 0.18s;}
+    .reply-btn:hover {background:#ffd700;color:#111;}
+    .reply-list {margin-top:7px;margin-left:17px;}
+    .reply-item {background:#443b5e;color:#fff6a8;border-radius:9px;margin:6px 0 0 0;padding:9px 10px 5px 10px;font-size:0.99em;box-shadow:0 1px 6px #0005;border-left:3px solid #ffd700bb;}
   </style>
 </head>
 <body>
@@ -266,7 +140,7 @@
     <div id="loginForm" class="login-form">
       <h1>🌙✨ Hamster's Secure Message Portal 🐹</h1>
       <div class="emoji-stars">🌟🌙⭐🐹✨🌙⭐🌟🐹✨🌙⭐</div>
-      <form onsubmit="checkPassword(event)">
+      <form id="loginFormElem">
         <div class="input-group">
           <label for="password">Enter Password:</label>
           <input type="password" id="password" autocomplete="off" required />
@@ -282,21 +156,21 @@
     <div id="messageContent" class="message-content" style="display: none;">
       <h1>📋 Message Memories</h1>
       <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
-      <!-- Main Message -->
       <div class="message-box">
         <div class="msg-date-label">🗓️ September 7, 2025</div>
-        nannuu atleast reply hi kr dete us message pe! kuch likh dete, Shif ke phone ze late night online the us time likh dete kuch, mai daily baat ke liye nhi bol rha hu atleast jab mujhe ye sab question ho tab answer de diya kro I know aap busy ho, par nannu complain ke baad bhi aapne silent nhi kiya, shif ka account b nhi dekha? ulta message ko dislike kr diya but message mujhe nhi kiya? 11:30 tak tha apke pass phone but fir b u chose not to Text me, nannu jo b mann me hai please btaado and aap khud hi khola kro message please don't tell anyone else to open the message and like, vo apke liye likha jaata hai
+        Nannuu mere bachee pyaaru thank you so much 🥺 aapne message kiya mujhe bohot sukoon mila halaki fir b aapne silent nhi Kiya even 12 :30 tak insta pe online show ho rha tha ,But nannu aajkal bohot stress hone lgaa hai snjh nhi aarha kuch b , aaap apna dhyan rkh rhe ho na? ache se khaa rhe ho na? please dua krna nannu mera mann shaant ho jaye pt nhi kya ho rha hai mujhe , aapki yaad bohot aati hai nannuu please mujhe btana kya pray kru taaki mann shant ho aur kaam pe dhyan rhe i Miss you too much zuc vuuu I really miss mera bchaa
       </div>
-      <!-- Feedback Section -->
+      <!-- Feedback Section Starts -->
       <div class="feedback-section">
         <div class="feedback-heading">🌙 Leave a Feedback or Reply</div>
-        <form class="feedback-form" id="feedbackForm" onsubmit="addFeedback(event)">
-          <textarea id="feedbackInput" placeholder="Share your thoughts, memories, or feedback..." required></textarea>
-          <button type="submit">Post</button>
+        <form id="mainFeedbackForm" style="margin-bottom:1em;">
+          <textarea id="mainFbText" placeholder="Leave your feedback..." required style="width:90%;min-height:48px;border-radius:8px;"></textarea><br>
+          <button type="submit" class="btn">Post</button>
         </form>
-        <div id="feedbackList" class="feedback-list"></div>
+        <div id="feedbackList" class="feedback-list">Loading...</div>
       </div>
-      <button onclick="logout()" class="btn logout-btn" style="margin-top:16px;">🚪 Logout</button>
+      <!-- Feedback Section Ends -->
+      <button id="logoutBtn" class="btn logout-btn" style="margin-top:16px;">🚪 Logout</button>
       <div class="info">
         ⭐ Show your support with a Like!<br>
         🖼️ Photo is always visible and best quality.
@@ -304,131 +178,169 @@
     </div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const CORRECT_PASSWORD = "MOONSTAR131";
-
-      window.checkPassword = function(event) {
-        event.preventDefault();
-        const entered = document.getElementById("password").value;
-        const errorDiv = document.getElementById("error");
-        if (entered === CORRECT_PASSWORD) {
-          document.getElementById("loginForm").style.display = "none";
-          document.getElementById("messageContent").style.display = "block";
-          updateCurrentDate();
-          errorDiv.textContent = "";
-        } else {
-          errorDiv.textContent = "❌ Incorrect password. Please try again.";
-          document.getElementById("password").value = "";
+    const CORRECT_PASSWORD = "MOONSTAR131";
+    const loginFormElem = document.getElementById('loginFormElem');
+    const loginForm = document.getElementById('loginForm');
+    const messageContent = document.getElementById('messageContent');
+    const passwordInput = document.getElementById('password');
+    const errorDiv = document.getElementById('error');
+    const currentDateSpan = document.getElementById('currentDate');
+    const logoutBtn = document.getElementById('logoutBtn');
+    loginFormElem.onsubmit = function(event) {
+      event.preventDefault();
+      if(passwordInput.value === CORRECT_PASSWORD){
+        loginForm.style.display = "none";
+        messageContent.style.display = "block";
+        errorDiv.textContent = "";
+        updateCurrentDate();
+        if(!window.firebaseLoaded){
+          window.firebaseLoaded = true;
+          loadFirebaseFeedback();
         }
-      };
+      } else {
+        errorDiv.textContent = "❌ Incorrect password. Please try again.";
+        passwordInput.value = "";
+      }
+    };
+    if(logoutBtn){
+      logoutBtn.onclick = function(){
+        loginForm.style.display = "block";
+        messageContent.style.display = "none";
+        passwordInput.value = "";
+        errorDiv.textContent = "";
+      }
+    }
+    function updateCurrentDate(){
+      const now = new Date();
+      const options = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kolkata" };
+      currentDateSpan.textContent = now.toLocaleDateString("en-IN", options) + " IST";
+    }
+    let inactivityTimer;
+    function resetInactivityTimer(){
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
+        if(messageContent.style.display === "block"){
+          loginForm.style.display = "block";
+          messageContent.style.display = "none";
+          passwordInput.value = "";
+          errorDiv.textContent = "";
+          alert("⏰ Session expired due to inactivity. Please login again.");
+        }
+      }, 30*60*1000);
+    }
+    document.addEventListener('click', resetInactivityTimer);
+    document.addEventListener('keypress', resetInactivityTimer);
+    resetInactivityTimer();
 
-      window.logout = function() {
-        document.getElementById("loginForm").style.display = "block";
-        document.getElementById("messageContent").style.display = "none";
-        document.getElementById("password").value = "";
-        document.getElementById("error").textContent = "";
-      };
-
-      window.updateCurrentDate = function() {
-        const now = new Date();
-        const options = {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          timeZone: "Asia/Kolkata",
+    // Firebase feedback box logic loaded only after login
+    function loadFirebaseFeedback() {
+      const script = document.createElement('script');
+      script.type = "module";
+      script.innerHTML = `
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, query, where, orderBy, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-firestore.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyD4ZMuhDC02sDJX2XTsVhW6lzpdXi-c1WE",
+          authDomain: "hamster-portal-581b1.firebaseapp.com",
+          projectId: "hamster-portal-581b1",
+          storageBucket: "hamster-portal-581b1.firebasestorage.app",
+          messagingSenderId: "834640510947",
+          appId: "1:834640510947:web:99e169a6ed8ef6e3d2ead6"
         };
-        document.getElementById("currentDate").textContent = now.toLocaleDateString("en-IN", options) + " IST";
-      };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-      let inactivityTimer;
-      function resetInactivityTimer() {
-        clearTimeout(inactivityTimer);
-        inactivityTimer = setTimeout(() => {
-          if (document.getElementById("messageContent").style.display === "block") {
-            logout();
-            alert("⏰ Session expired due to inactivity. Please login again.");
+        const feedbackList = document.getElementById('feedbackList');
+        const mainFeedbackForm = document.getElementById('mainFeedbackForm');
+        const mainFbText = document.getElementById('mainFbText');
+
+        async function postFeedback(text, parentId = null) {
+          await addDoc(collection(db, "feedbacks"), {
+            text,
+            parentId,
+            timestamp: serverTimestamp()
+          });
+          await loadFeedbacks();
+        }
+
+        mainFeedbackForm.onsubmit = async (e) => {
+          e.preventDefault();
+          const text = mainFbText.value.trim();
+          if (text) {
+            await postFeedback(text); // parentId = null for main feedback
+            mainFbText.value = "";
           }
-        }, 30 * 60 * 1000);
-      }
-      document.addEventListener("click", resetInactivityTimer);
-      document.addEventListener("keypress", resetInactivityTimer);
-      resetInactivityTimer();
+        };
 
-      // ----- Feedback/Comment Box Logic -----
-      let feedbackCounter = 0;
-      const feedbackList = document.getElementById('feedbackList');
+        async function loadFeedbacks() {
+          feedbackList.innerHTML = "Loading...";
+          const cutoff = new Date(Date.now() - 24*60*60*1000);
+          const mainQ = query(
+            collection(db, "feedbacks"),
+            where("parentId", "==", null),
+            where("timestamp", ">=", cutoff),
+            orderBy("timestamp", "desc")
+          );
+          const mainSnaps = await getDocs(mainQ);
+          if (mainSnaps.empty) {
+            feedbackList.innerHTML = "<i>No feedback yet, be first!</i>";
+            return;
+          }
+          let html = "";
+          for (const doc of mainSnaps.docs) {
+            const d = doc.data();
+            const dt = (d.timestamp && d.timestamp.toDate) ? d.timestamp.toDate().toLocaleString() : "Just now";
+            html += \`
+              <div class="feedback-item" style="margin-top:20px;">
+                <div class="feedback-meta">Visitor • 🕒 \${dt}</div>
+                <div class="feedback-content">\${d.text}</div>
+                <form data-parent="\${doc.id}" style="margin-top:5px;">
+                  <input type="text" placeholder="Reply..." required style="width:65%;padding:5px;border-radius:7px;">
+                  <button type="submit" class="reply-btn">Reply</button>
+                </form>
+                <div class="reply-list" id="replies-\${doc.id}" style="margin-left:12px;margin-top:5px;"></div>
+              </div>
+            \`;
+          }
+          feedbackList.innerHTML = html;
+          document.querySelectorAll('form[data-parent]').forEach(form => {
+            form.onsubmit = async (e) => {
+              e.preventDefault();
+              const parentId = form.getAttribute("data-parent");
+              const inp = form.querySelector("input");
+              const reply = inp.value.trim();
+              if(reply){
+                await postFeedback(reply, parentId);
+                inp.value = "";
+                await loadReplies(parentId);
+              }
+            }
+          });
+          for (const doc of mainSnaps.docs) {
+            await loadReplies(doc.id);
+          }
+        }
 
-      function formatDate(d) {
-        return d.toLocaleDateString("en-IN", {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }) + " " + d.toLocaleTimeString("en-IN", {
-          hour: '2-digit',
-          minute: '2-digit'
-        });
-      }
-
-      window.addFeedback = function(event) {
-        event.preventDefault();
-        const textarea = document.getElementById("feedbackInput");
-        const text = textarea.value.trim();
-        if (!text) return;
-        feedbackCounter++;
-        const now = new Date();
-        const feedbackId = `feedback${feedbackCounter}_${now.getTime()}`;
-        const feedbackHtml = `
-          <div class="feedback-item" id="${feedbackId}">
-            <div class="feedback-meta">
-              <span>Visitor</span>
-              <span title="${now.toISOString()}">🕒 ${formatDate(now)}</span>
-            </div>
-            <div class="feedback-content">${escapeHTML(text)}</div>
-            <button type="button" class="reply-btn" onclick="showReplyForm('${feedbackId}')">Reply</button>
-            <div class="reply-list" id="${feedbackId}-replies"></div>
-            <div class="reply-form-area d-none" id="${feedbackId}-form">
-              <textarea placeholder="Write a reply..."></textarea>
-              <button onclick="postReply('${feedbackId}')">Reply</button>
-            </div>
-          </div>
-        `;
-        feedbackList.insertAdjacentHTML("afterbegin", feedbackHtml);
-        textarea.value = "";
-      };
-
-      window.showReplyForm = function(fid) {
-        const form = document.getElementById(fid + "-form");
-        if (form) form.classList.toggle("d-none");
-      };
-
-      window.postReply = function(fid) {
-        const form = document.getElementById(fid + "-form");
-        const replyList = document.getElementById(fid + "-replies");
-        const textarea = form.querySelector("textarea");
-        const reply = textarea.value.trim();
-        if (!reply) return;
-        const now = new Date();
-        const replyHtml = `
-          <div class="reply-item">
-            <div class="reply-meta">Visitor • 🕒 ${formatDate(now)}</div>
-            <div class="reply-content">${escapeHTML(reply)}</div>
-          </div>
-        `;
-        replyList.insertAdjacentHTML("beforeend", replyHtml);
-        textarea.value = "";
-        form.classList.add("d-none");
-      };
-
-      function escapeHTML(str) {
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML.replace(/\n/g, '<br>');
-      }
-
-      window.escapeHTML = escapeHTML;
-    });
+        async function loadReplies(parentId) {
+          const repliesQ = query(
+            collection(db, "feedbacks"),
+            where("parentId", "==", parentId),
+            orderBy("timestamp", "asc")
+          );
+          const repliesSnaps = await getDocs(repliesQ);
+          const repliesEl = document.getElementById("replies-" + parentId);
+          let repliesHtml = "";
+          for (const rdoc of repliesSnaps.docs) {
+            const rd = rdoc.data();
+            const dt = (rd.timestamp && rd.timestamp.toDate) ? rd.timestamp.toDate().toLocaleString() : "Just now";
+            repliesHtml += '<div class="reply-item" style="margin-top:4px;">↳ ' + rd.text + ' <span style="font-size:.87em;color:#ffd700;">' + dt + '</span></div>';
+          }
+          if(repliesEl) repliesEl.innerHTML = repliesHtml;
+        }
+        loadFeedbacks();
+      `;
+      document.body.appendChild(script);
+    }
   </script>
 </body>
 </html>
