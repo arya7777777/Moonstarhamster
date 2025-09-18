@@ -47,7 +47,8 @@
       transition: box-shadow 0.3s;
     }
     input[type="password"]:focus { box-shadow: inset 0 0 12px #ffd700; }
-    /* Buttons (used for <button> and <a>) */
+
+    /* Buttons (used for <button> and styled <a>) */
     .btn {
       background: #ffd700;
       color: #1e1e2f;
@@ -157,11 +158,9 @@
       box-shadow: 0 5px 14px rgba(255,126,195,.45), inset 0 0 0 1px rgba(255,255,255,.8);
     }
 
-    <!-- Mai hoon Naa Photo (static from repo) -->
-<section aria-label="Mai hoon Naa Photo" style="margin:18px 0 12px;">
-  <style>
+    /* Photo (figure + caption) */
     .photo-figure{
-      margin:0; background:#202045; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.5);
+      margin:18px 0 12px; background:#202045; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.5);
       overflow:hidden; border:2px solid rgba(255,255,255,.12);
     }
     .photo-figure img{
@@ -171,15 +170,10 @@
       padding:10px 12px; font-weight:800; letter-spacing:.04em; color:#ffd700; background:#1e1e3e;
     }
     @media (min-width: 720px){ .photo-figure img{ height:320px; } }
-  </style>
 
-  <figure class="photo-figure">
-    
-    <img src="assets/img/image-10.png" alt="Mai hoon Naa" />
-    <figcaption>📷 Mai hoon Naa</figcaption>
-  </figure>
-</section>
-  
+  </style>
+</head>
+<body>
   <div class="container">
     <div id="loginForm" class="login-form">
       <h1>🌙✨ Hamster's Secure Message Portal 🐹</h1>
@@ -210,20 +204,13 @@
         <button id="logoutBtn" class="btn logout-btn">🚪 Logout</button>
       </div>
 
-      <!-- Photo placeholder block -->
-      <section class="photo-holder" aria-label="Mai hoon Naa Photo">
-        <div class="photo-header">
-          <div class="photo-title">📷 Mai hoon Naa</div>
-          <div class="photo-actions">
-            <button id="uploadBtn" class="btn" type="button">Upload</button>
-            <button id="clearBtn" class="btn" type="button">Clear</button>
-          </div>
-        </div>
-        <div class="photo-frame">
-          <div id="phEmpty" class="photo-empty">image-10.png.</div>
-          <img id="photoImg" alt="Mai hoon Naa" />
-          <input id="photoInput" type="file" accept="image/*" hidden />
-        </div>
+      <!-- Mai hoon Naa Photo (static from repo) -->
+      <section aria-label="Mai hoon Naa Photo">
+        <figure class="photo-figure">
+          <!-- Replace path with your actual PNG path relative to this HTML file -->
+          <img src="Moonstarhamster/image-10.pg" alt="Mai hoon Naa" />
+          <figcaption>📷 Mai hoon Naa</figcaption>
+        </figure>
       </section>
 
       <div class="message-box">
@@ -263,48 +250,6 @@
     const errorDiv = document.getElementById('error');
     const currentDateSpan = document.getElementById('currentDate');
     const logoutBtn = document.getElementById('logoutBtn');
-
-    // Photo handlers
-    const uploadBtn = document.getElementById('uploadBtn');
-    const clearBtn  = document.getElementById('clearBtn');
-    const photoInput = document.getElementById('photoInput');
-    const photoImg = document.getElementById('photoImg');
-    const phEmpty = document.getElementById('phEmpty');
-    const LS_KEY = 'hamster.portal.photo';
-
-    function showPhoto(src){
-      if(src){
-        photoImg.src = src;
-        photoImg.style.display = 'block';
-        phEmpty.style.display = 'none';
-      }else{
-        photoImg.src = '';
-        photoImg.style.display = 'none';
-        phEmpty.style.display = 'block';
-      }
-    }
-    // Load from localStorage once
-    try{
-      const saved = localStorage.getItem(LS_KEY);
-      if(saved) showPhoto(saved);
-    }catch(e){ /* ignore quota errors */ }
-
-    uploadBtn?.addEventListener('click', ()=> photoInput.click());
-    clearBtn?.addEventListener('click', ()=>{
-      try{ localStorage.removeItem(LS_KEY); }catch(e){}
-      showPhoto('');
-    });
-    photoInput?.addEventListener('change', (e)=>{
-      const file = e.target.files?.[0];
-      if(!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        const data = String(reader.result);
-        showPhoto(data);
-        try{ localStorage.setItem(LS_KEY, data); }catch(err){}
-      };
-      reader.readAsDataURL(file);
-    });
 
     loginFormElem.onsubmit = function(event) {
       event.preventDefault();
@@ -355,7 +300,7 @@
     document.addEventListener('keypress', resetInactivityTimer);
     resetInactivityTimer();
 
-    // Fixed Feedback box logic:
+    // Feedback (Firestore)
     function loadFirebaseFeedback() {
       const script = document.createElement('script');
       script.type = "module";
@@ -468,4 +413,5 @@
     }
   </script>
 </body>
-</html>
+          </html>
+          
