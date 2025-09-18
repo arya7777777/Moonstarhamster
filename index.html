@@ -47,7 +47,8 @@
       transition: box-shadow 0.3s;
     }
     input[type="password"]:focus { box-shadow: inset 0 0 12px #ffd700; }
-    button.btn {
+    /* Buttons (used for <button> and <a>) */
+    .btn {
       background: #ffd700;
       color: #1e1e2f;
       font-weight: bold;
@@ -56,11 +57,15 @@
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
       margin: 10px 7px;
       box-shadow: 0 5px 15px rgba(255,215,0,0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
     }
-    button.btn:hover {
+    .btn:hover {
       background: #ffea00;
       box-shadow: 0 8px 20px rgba(255,235,20,0.9);
       transform: translateY(-2px);
@@ -120,6 +125,8 @@
       display: inline-block;
       letter-spacing: 0.04em;
     }
+
+    /* Feedback */
     .feedback-section { margin-top: 40px;}
     .feedback-heading { 
       color: #ffd700; font-size: 1.25em;
@@ -133,27 +140,53 @@
     .reply-btn:hover {background:#ffd700;color:#111;}
     .reply-list {margin-top:7px;margin-left:17px;}
     .reply-item {background:#443b5e;color:#fff6a8;border-radius:9px;margin:6px 0 0 0;padding:9px 10px 5px 10px;font-size:0.99em;box-shadow:0 1px 6px #0005;border-left:3px solid #ffd700bb;}
-    /* Happy 6 Month back link styling */
-    .back-link {
-      margin:14px 0 10px 0;
-      display: flex;
-      justify-content: center;
-    }
+
+    /* Back link */
+    .back-link { margin:14px 0 10px 0; display: flex; justify-content: center; }
     .back-link a {
-      color:#ffd700; 
-      font-weight:bold; 
-      font-size:1.11em; 
-      text-decoration:none; 
-      background:#222244; 
-      padding:9px 22px; 
-      border-radius:8px; 
-      box-shadow:0 2px 8px #ffd70080; 
-      display:inline-block;
+      color:#ffd700; font-weight:bold; font-size:1.11em; text-decoration:none;
+      background:#222244; padding:9px 22px; border-radius:8px; box-shadow:0 2px 8px #ffd70080; display:inline-block;
       transition: background 0.18s;
     }
-    .back-link a:hover {
-      background: #ffd700;
-      color: #222244;
+    .back-link a:hover { background: #ffd700; color: #222244; }
+
+    /* Surprise button style variant */
+    .surprise-btn{
+      background: linear-gradient(90deg, #ffb6e6, #ffd6f2);
+      color:#221a3d;
+      box-shadow: 0 5px 14px rgba(255,126,195,.45), inset 0 0 0 1px rgba(255,255,255,.8);
+    }
+
+    /* Photo placeholder block */
+    .photo-holder{
+      background:#202045;
+      border-radius:12px;
+      padding:16px;
+      margin:18px 0 10px 0;
+      box-shadow:0 4px 14px rgba(0,0,0,.5);
+      text-align:left;
+    }
+    .photo-header{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;
+    }
+    .photo-title{
+      font-weight:800; letter-spacing:.04em; color:#ffd700; font-size:1.1em;
+    }
+    .photo-actions .btn{ padding:8px 12px; font-size:14px; margin:0 6px 0 0; }
+    .photo-frame{
+      width:100%; height:260px; border-radius:12px; position:relative; overflow:hidden;
+      border:2px dashed rgba(255,255,255,.25); background:
+      radial-gradient(circle at 20% 20%, #2a2a55 0 40%, transparent 40% 100%),
+      radial-gradient(circle at 80% 70%, #26264f 0 40%, transparent 40% 100%),
+      #1e1e3a;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .photo-empty{
+      color:#cfcfe6; opacity:.8; font-weight:700; letter-spacing:.04em; font-size:1.05em;
+      text-align:center; padding:0 8px;
+    }
+    .photo-frame img{
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:none;
     }
   </style>
 </head>
@@ -162,6 +195,7 @@
     <div id="loginForm" class="login-form">
       <h1>🌙✨ Hamster's Secure Message Portal 🐹</h1>
       <div class="emoji-stars">🌟🌙⭐🐹✨🌙⭐🌟🐹✨🌙⭐</div>
+
       <form id="loginFormElem">
         <div class="input-group">
           <label for="password">Enter Password:</label>
@@ -169,20 +203,45 @@
         </div>
         <button type="submit" class="btn">Access Messages</button>
       </form>
+
       <div id="error" class="error"></div>
       <div class="info">
         🔒 This portal contains all your messages with memories and wishes.<br />
         💡 Enter the correct password to view, post, and remember.
       </div>
     </div>
+
     <div id="messageContent" class="message-content" style="display: none;">
       <h1>📋 Message Memories</h1>
       <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
+
+      <!-- Surprise + Actions row -->
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:4px 0 10px;">
+        <a class="btn surprise-btn" href="https://arya7777777.github.io/Moonucutuuu/" target="_blank" rel="noopener">🎁 Surprise</a>
+        <button id="logoutBtn" class="btn logout-btn">🚪 Logout</button>
+      </div>
+
+      <!-- Photo placeholder block -->
+      <section class="photo-holder" aria-label="Mai hoon Naa Photo">
+        <div class="photo-header">
+          <div class="photo-title">📷 Mai hoon Naa</div>
+          <div class="photo-actions">
+            <button id="uploadBtn" class="btn" type="button">Upload</button>
+            <button id="clearBtn" class="btn" type="button">Clear</button>
+          </div>
+        </div>
+        <div class="photo-frame">
+          <div id="phEmpty" class="photo-empty">Add a special photo here — it will stay on this device until cleared.</div>
+          <img id="photoImg" alt="Mai hoon Naa" />
+          <input id="photoInput" type="file" accept="image/*" hidden />
+        </div>
+      </section>
+
       <div class="message-box">
         <div class="msg-date-label">🗓️ September 7, 2025</div>
-      Nannuuuu Im really SORRY   Mera Phone band hogya tha Light nhi thi   ,subah yaad hi nhi rha likhna  mujhe maaf krna Nannuuu 🥺  Nannnu kabi kabi mann krta hai aap mere samne ho , ya vc pe ho ya call pe main aapko apne dil ki har baat btaau sab Kuch Share krna hai aapse Bohot baatien krni h, Nannu I'm Really Thankfull for everything you did for me thank you so much Nannuuu  birthday nazdeek aarha hai inshallah sab theek hoga Birthday bohot acha jayega' Thank you allah thank you umbers 
+        Nannuuuu Im really SORRY   Mera Phone band hogya tha Light nhi thi   ,subah yaad hi nhi rha likhna  mujhe maaf krna Nannuuu 🥺  Nannnu kabi kabi mann krta hai aap mere samne ho , ya vc pe ho ya call pe main aapko apne dil ki har baat btaau sab Kuch Share krna hai aapse Bohot baatien krni h, Nannu I'm Really Thankfull for everything you did for me thank you so much Nannuuu  birthday nazdeek aarha hai inshallah sab theek hoga Birthday bohot acha jayega' Thank you allah thank you umbers 
         nanu apki tension hoti hai , aap daily bina phone ke aate jaate ho gaadi b nhi milti aapko kayi bar please apna dhyan rkhna kro nannuu 
-        <!-- Happy 6 Month back link -->
+
         <div class="back-link">
           <a href="https://arya7777777.github.io/6-MONTH/" target="_blank">Happy 6 Month</a>
         </div>
@@ -197,14 +256,15 @@
           <div id="feedbackList" class="feedback-list">Loading...</div>
         </div>
         <!-- Feedback Section Ends -->
-        <button id="logoutBtn" class="btn logout-btn" style="margin-top:16px;">🚪 Logout</button>
-        <div class="info">
+
+        <div class="info" style="margin-top:16px;">
           ⭐ Show your support with a Like!<br>
           🖼️ Photo is always visible and best quality.
         </div>
       </div>
     </div>
   </div>
+
   <script>
     const CORRECT_PASSWORD = "MOONSTAR131";
     const loginFormElem = document.getElementById('loginFormElem');
@@ -214,6 +274,49 @@
     const errorDiv = document.getElementById('error');
     const currentDateSpan = document.getElementById('currentDate');
     const logoutBtn = document.getElementById('logoutBtn');
+
+    // Photo handlers
+    const uploadBtn = document.getElementById('uploadBtn');
+    const clearBtn  = document.getElementById('clearBtn');
+    const photoInput = document.getElementById('photoInput');
+    const photoImg = document.getElementById('photoImg');
+    const phEmpty = document.getElementById('phEmpty');
+    const LS_KEY = 'hamster.portal.photo';
+
+    function showPhoto(src){
+      if(src){
+        photoImg.src = src;
+        photoImg.style.display = 'block';
+        phEmpty.style.display = 'none';
+      }else{
+        photoImg.src = '';
+        photoImg.style.display = 'none';
+        phEmpty.style.display = 'block';
+      }
+    }
+    // Load from localStorage once
+    try{
+      const saved = localStorage.getItem(LS_KEY);
+      if(saved) showPhoto(saved);
+    }catch(e){ /* ignore quota errors */ }
+
+    uploadBtn?.addEventListener('click', ()=> photoInput.click());
+    clearBtn?.addEventListener('click', ()=>{
+      try{ localStorage.removeItem(LS_KEY); }catch(e){}
+      showPhoto('');
+    });
+    photoInput?.addEventListener('change', (e)=>{
+      const file = e.target.files?.[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const data = String(reader.result);
+        showPhoto(data);
+        try{ localStorage.setItem(LS_KEY, data); }catch(err){}
+      };
+      reader.readAsDataURL(file);
+    });
+
     loginFormElem.onsubmit = function(event) {
       event.preventDefault();
       if(passwordInput.value === CORRECT_PASSWORD){
@@ -230,6 +333,7 @@
         passwordInput.value = "";
       }
     };
+
     if(logoutBtn){
       logoutBtn.onclick = function(){
         loginForm.style.display = "block";
@@ -238,11 +342,13 @@
         errorDiv.textContent = "";
       }
     }
+
     function updateCurrentDate(){
       const now = new Date();
       const options = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kolkata" };
       currentDateSpan.textContent = now.toLocaleDateString("en-IN", options) + " IST";
     }
+
     let inactivityTimer;
     function resetInactivityTimer(){
       clearTimeout(inactivityTimer);
@@ -295,7 +401,7 @@
           e.preventDefault();
           const text = mainFbText.value.trim();
           if (text) {
-            await postFeedback(text); // parentId = null for main feedback
+            await postFeedback(text);
             mainFbText.value = "";
           }
         };
@@ -331,6 +437,7 @@
             \`;
           }
           feedbackList.innerHTML = html;
+
           document.querySelectorAll('form[data-parent]').forEach(form => {
             form.onsubmit = async (e) => {
               e.preventDefault();
@@ -344,6 +451,7 @@
               }
             }
           });
+
           for (const doc of mainSnaps.docs) {
             await loadReplies(doc.id);
           }
