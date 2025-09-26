@@ -8,12 +8,28 @@
     * { margin: 0; padding: 0; box-sizing: border-box;}
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0b3d91 0%, #1e1e2f 100%);
+      /* Optional custom background image */
+      /* background-image: url('Aesthetics11.png'); */
+      /* background-size: 200% 200%; */
+      background: radial-gradient(ellipse at bottom, #253052 0%, #0a1127 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #eee;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Animated shimmer stars */
+    .star {
+      position: fixed; z-index: 0; border-radius: 100%;
+      background: #fff6be; opacity: 0.82; pointer-events:none;
+      animation: shimmerStar 2.7s infinite;
+    }
+    @keyframes shimmerStar {
+      0%,100%{ opacity:0.65; box-shadow:0 0 9px 1px #ffe06654;}
+      42%{ opacity:1; box-shadow:0 0 15px 4px #fff7bd;}
+      60%{ opacity:0.6;}
     }
     .container {
       background: rgba(30, 30, 47, 0.96);
@@ -24,148 +40,81 @@
       width: 97vw;
       text-align: center;
       position: relative;
+      z-index:3;
     }
-    h1 {
-      margin-bottom: 25px;
-      font-size: 2.5em;
-      color: #ffd700;
-      text-shadow: 0 0 8px #fff, 0 0 25px #ffd700;
-    }
+    h1 { margin-bottom: 25px; font-size: 2.5em; color: #ffd700; text-shadow: 0 0 8px #fff, 0 0 25px #ffd700; }
     .emoji-stars { font-size: 1.2em; margin-bottom: 18px; }
     .input-group { margin-bottom: 20px; text-align: left; color: #ccc; }
     label { font-weight: bold; display: block; margin-bottom: 6px;}
     input[type="password"] {
-      width: 100%;
-      padding: 12px 15px;
-      font-size: 18px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      background: #1a1a2e;
-      color: #fff;
-      box-shadow: inset 0 0 8px #444;
-      transition: box-shadow 0.3s;
+      width: 100%; padding: 12px 15px; font-size: 18px; border-radius: 10px; border: none; outline: none; background: #1a1a2e; color: #fff; box-shadow: inset 0 0 8px #444; transition: box-shadow 0.3s;
     }
     input[type="password"]:focus { box-shadow: inset 0 0 12px #ffd700; }
 
-    /* Buttons (used for <button> and styled <a>) */
-    .btn {
-      background: #ffd700;
-      color: #1e1e2f;
-      font-weight: bold;
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-      margin: 10px 7px;
-      box-shadow: 0 5px 15px rgba(255,215,0,0.7);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
+    .btn, .memory-btn, .surprise-btn {
+      background: #ffd700; color: #1e1e2f; font-weight: bold; padding: 15px 30px; font-size: 18px; border: none; border-radius: 12px; cursor: pointer; transition: background 0.3s, transform 0.2s, box-shadow 0.2s; margin: 10px 7px; box-shadow: 0 5px 15px rgba(255,215,0,0.7); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
     }
-    .btn:hover {
-      background: #ffea00;
-      box-shadow: 0 8px 20px rgba(255,235,20,0.9);
-      transform: translateY(-2px);
+    .btn:hover, .memory-btn:hover, .surprise-btn:hover {
+      background: #ffea00; box-shadow: 0 8px 20px rgba(255,235,20,0.9), 0 0 12px #fff9; color: #1a115a; transform: translateY(-2px);
     }
-    .error {
-      color: #ff4040;
-      margin-top: 12px;
-      font-weight: 700;
-      text-shadow: 0 0 6px #ff0000;
-      text-align:center;
+    .surprise-btn {
+      background: linear-gradient(90deg,#ffb6e6,#ffd6f2)!important; color:#221a3d !important; padding: 13px 28px; font-weight: bold;
     }
-    .info {
-      font-size: 0.9em;
-      margin-top: 15px;
-      color: #aaa;
-      line-height: 1.4;
-    }
-    .logout-btn {
-      background: #ff4646;
-      box-shadow: 0 4px 10px rgba(255, 70, 70, 0.8);
-    }
-    .logout-btn:hover {
-      background: #ff2a2a;
-      box-shadow: 0 6px 15px rgba(255, 50, 50, 0.9);
-    }
-    .date-info {
-      background: #1e1e3e;
-      border-radius: 8px;
-      padding: 10px 15px;
-      margin-bottom: 15px;
-      font-weight: 600;
-      font-size: 1.05em;
-      text-shadow: 0 0 4px #555;
-      color: #f0e68c;
-    }
+    .date-info { background: #1e1e3e; border-radius: 8px; padding: 10px 15px; margin-bottom: 15px; font-weight: 600; font-size: 1.05em; text-shadow: 0 0 4px #555; color: #f0e68c; }
     .message-content { display: none; }
     .message-box {
-      background: #222244;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 24px 0;
-      font-family: 'Courier New', monospace;
-      font-size: 1.13em;
-      color: #f0e68c;
-      box-shadow: 0 4px 18px #0007;
-      min-height: 80px;
-      text-align: left;
-      position: relative;
-      word-break: break-word;
+      background: #222244; border-radius: 12px; padding: 20px; margin: 16px 0 20px;
+      font-family: 'Courier New', monospace; font-size: 1.13em; color: #f0e68c;
+      box-shadow: 0 4px 18px #0007; min-height: 80px; text-align: left; position: relative; word-break: break-word;
     }
-    .msg-date-label {
-      color:#ffd700;
-      font-weight: bold;
-      font-family: Arial, sans-serif;
-      font-size: 1.09em;
-      margin-bottom: 12px;
-      display: inline-block;
-      letter-spacing: 0.04em;
+    .msg-date-label { color:#ffd700; font-weight: bold; font-family: Arial, sans-serif; font-size: 1.09em; margin-bottom: 12px; display: inline-block; letter-spacing: 0.04em; }
+
+    .row { display:flex; flex-wrap:wrap; justify-content:center; gap: 12px 14px; }
+    .row-top { margin-top: 6px; margin-bottom: 10px; }
+
+    .memories-section { margin:18px 0 10px 0; text-align:center; }
+    .memories-list { display:flex; flex-wrap:wrap; justify-content:center; gap: 12px 14px; }
+    .memory-btn {
+      background: linear-gradient(135deg,#363c5e 40%, #7f52ff 100%); color: #ffd700;
+      font-size: 1.05em; padding: 11px 22px; border-radius: 10px; margin: 6px 5px 4px 5px;
     }
 
-    /* Feedback */
-    .feedback-section { margin-top: 40px;}
-    .feedback-heading { 
-      color: #ffd700; font-size: 1.25em;
-      text-shadow: 0 0 8px #fff7, 0 0 15px #ffd70077;
-      margin-bottom: 12px; font-weight: 700;}
+    .feedback-section { margin-top: 26px;}
+    .feedback-heading { color: #ffd700; font-size: 1.25em; text-shadow: 0 0 8px #fff7, 0 0 15px #ffd70077; margin-bottom: 12px; font-weight: 700; }
     .feedback-list {margin-bottom:32px;}
-    .feedback-item { background: #292946; border-radius:13px; box-shadow:0 2px 10px #000a; color:#fffbe0; margin-bottom:18px; padding:16px 18px 10px 14px; position:relative; border-left:4px solid #ffd700;}
-    .feedback-meta {margin-bottom:3px; font-size:0.97em; color:#ffd900; font-weight:bold; letter-spacing:.04em; opacity:.88;}
-    .feedback-content {margin-left:8px; font-size:1.12em; word-break:break-word;}
-    .reply-btn { background:#fffac3; color:#232333; padding:3px 13px; font-size:0.98em; border-radius:7px; border:none; margin-top:8px; margin-right:7px; cursor:pointer; box-shadow:0 1px 4px #ffd70066; font-weight:600; transition:background 0.18s;}
-    .reply-btn:hover {background:#ffd700;color:#111;}
-    .reply-list {margin-top:7px;margin-left:17px;}
-    .reply-item {background:#443b5e;color:#fff6a8;border-radius:9px;margin:6px 0 0 0;padding:9px 10px 5px 10px;font-size:0.99em;box-shadow:0 1px 6px #0005;border-left:3px solid #ffd700bb;}
+    .error { color:#ff4040; margin-top:12px; font-weight:700; text-shadow:0 0 6px #ff0000; text-align:center; }
 
-    /* Back link */
-    .back-link { margin:14px 0 10px 0; display: flex; justify-content: center; }
-    .back-link a {
-      color:#ffd700; font-weight:bold; font-size:1.11em; text-decoration:none;
-      background:#222244; padding:9px 22px; border-radius:8px; box-shadow:0 2px 8px #ffd70080; display:inline-block;
-      transition: background 0.18s;
+    /* Balloons */
+    #balloon-container { pointer-events: none; position: fixed; left: 0; bottom: 0; width: 100vw; height: 100vh; z-index: 999; }
+    .balloon {
+      position: absolute; bottom: -100px; width: 44px; height: 66px; opacity: 0.94; background: var(--color, #ffe066);
+      border-radius: 22px 22px 25px 25px / 48px 48px 15px 25px; animation: riseUp 4.2s linear forwards; box-shadow: 0 3px 12px #fff7; left: var(--left, 50%);
     }
-    .back-link a:hover { background: #ffd700; color: #222244; }
+    .balloon::after { content: ''; position: absolute; left: 47%; bottom: -17px; width: 3px; height: 11px; background: #ba8; border-radius: 2px; }
+    @keyframes riseUp { from { bottom: -100px; opacity: 0;} to { bottom: 100vh; opacity: 1;} }
 
-    /* Surprise button style variant */
-    .surprise-btn{
-      background: linear-gradient(90deg, #ffb6e6, #ffd6f2);
-      color:#221a3d;
-      box-shadow: 0 5px 14px rgba(255,126,195,.45), inset 0 0 0 1px rgba(255,255,255,.8);
+    /* Blackout overlay */
+    #blackout { display: none; position: fixed; top:0; left:0; right:0; bottom:0; background: #111; z-index: 99999; align-items: center; justify-content: center; text-align: center; flex-direction: column; }
+    #pull-string-btn {
+      background:#ffd700; color:#222; font-weight:bold; border:none; border-radius:18px; font-size:2.2em; box-shadow:0 5px 18px #ffd700bb; margin-top:18px; padding:12px 36px; cursor:pointer; animation: btnSwing 2.7s infinite alternate ease-in-out;
     }
-
+    @keyframes btnSwing {0%{transform:rotate(-8deg);}100%{transform:rotate(8deg);}}
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- Blackout overlay with custom text -->
+  <div id="blackout">
+    <div style="font-size:2.1em; color:#ffd700; font-weight:bold; letter-spacing:.02em; margin-bottom:10px;">HBD 😏 bas ye hi bana paya</div>
+    <button id="pull-string-btn">💡</button>
+  </div>
+
+  <!-- Balloons -->
+  <div id="balloon-container"></div>
+
+  <div class="container" id="main-content">
     <div id="loginForm" class="login-form">
       <h1>🌙✨ Hamster's Secure Message Portal 🐹</h1>
       <div class="emoji-stars">🌟🌙⭐🐹✨🌙⭐🌟🐹✨🌙⭐</div>
-
       <form id="loginFormElem">
         <div class="input-group">
           <label for="password">Enter Password:</label>
@@ -173,7 +122,6 @@
         </div>
         <button type="submit" class="btn">Access Messages</button>
       </form>
-
       <div id="error" class="error"></div>
       <div class="info">
         🔒 This portal contains all your messages with memories and wishes.<br />
@@ -182,206 +130,114 @@
     </div>
 
     <div id="messageContent" class="message-content" style="display: none;">
-      <h1>💗⃝🌕Our Memories</h1>
-      <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
-
-      <!-- Surprise + Actions row -->
-      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:4px 0 10px;">
-        <a class="btn surprise-btn" href="https://arya7777777.github.io/Two-Hearts-/" target="_blank" rel="noopener">🎁 Surprise</a>
-        <button id="logoutBtn" class="btn logout-btn">🚪 Logout</button>
+      <!-- Surprise buttons ABOVE -->
+      <div class="row row-top">
+        <a href="https://arya1111-k.github.io/happy-Birthday-Bakkuuu/" target="_blank" class="surprise-btn">🎁 Surprise 1</a>
+        <a href="https://arya7777777.github.io/Test526/" target="_blank" class="surprise-btn">🎁 Surprise 2</a>
+        <a href="https://arya1111-k.github.io/Wuywuw/" target="_blank" class="surprise-btn">🎁 Surprise 3</a>
+        <a href="https://arya7777777.github.io/Qtwtwk/" target="_blank" class="surprise-btn">🎁 Surprise 4</a>
       </div>
+
+      <h1>Happy Birthday Nannu!🎂</h1>
+      <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
 
       <div class="message-box">
         <div class="msg-date-label">🗓️ September 19, 2025</div>
-        Nannuuuuu , Nanuuuu mwri jaaaan  mere Zuvuuuu nere pyaaruuu mere shoneee mere bacheeeeee , meri duniyaaaa , mera sab kuch  mera jaahaaaa,   My universe, Nannuuu please Mujhe maaaaf krnaaaa ,     I'm Really Sorry Nannuu , Please forgive me Please nannuuuu meri jaaan, i bow down   my queen  my World   , Nanuu please maaf krte rehna mujhe    , Aise kabi naaraz mat hona na hua kro ,   ek din chlaa jaunga is jahaan se   fir kya krunga kispe gusa karunga ,   koi apna apke ilawa ho to tab naa  mere to aap hi ho sab kuch mera oyaraaaa bchaaaaaaaaa    ,   I misss u jaan miss you so much       Aone staruu ko maaaf krnaa bchaaaaaaaaa  I'm trying to be a  good human being 
-        <!-- Feedback Section Starts -->
-        <div class="feedback-section">
-          <div class="feedback-heading">🌙 Leave a Feedback or Reply</div>
-          <form id="mainFeedbackForm" style="margin-bottom:1em;">
-            <textarea id="mainFbText" placeholder="Leave your feedback..." required style="width:90%;min-height:48px;border-radius:8px;"></textarea><br>
-            <button type="submit" class="btn">Post</button>
-          </form>
-          <div id="feedbackList" class="feedback-list">Loading...</div>
-        </div>
-        <!-- Feedback Section Ends -->
+        Nannuuuuu , Nanuuuu mwri jaaaan  mere Zuvuuuu nere pyaaruuu mere shoneee mere bacheeeeee , meri duniyaaaa , mera sab kuch...
+      </div>
 
-        <div class="info" style="margin-top:16px;">
-          ⭐ Show your support with a Like!<br>
-          🖼️ Photo is always visible and best quality.
+      <!-- Memories BELOW -->
+      <div class="memories-section">
+        <h2 style="color:#ffd700; margin-bottom:12px; letter-spacing:.025em;">Our Memories</h2>
+        <div class="memories-list">
+          <button class="memory-btn">Memory 1</button>
+          <button class="memory-btn">Memory 2</button>
+          <button class="memory-btn">Memory 3</button>
+          <button class="memory-btn">Memory 4</button>
+          <button class="memory-btn">Memory 5</button>
         </div>
+      </div>
+
+      <!-- Feedback Section -->
+      <div class="feedback-section">
+        <div class="feedback-heading">🌙 Leave a Feedback or Reply</div>
+        <form id="mainFeedbackForm" style="margin-bottom:1em;display:inline;">
+          <textarea id="mainFbText" placeholder="Leave your feedback..." required style="width:54%;min-height:48px;border-radius:8px;"></textarea>
+          <button type="submit" class="btn">Post</button>
+        </form>
+        <div id="feedbackList" class="feedback-list">Loading...</div>
       </div>
     </div>
   </div>
 
   <script>
+    // Create animated stars
+    function addAnimatedStars(num=57) {
+      for(let i=0;i<num;i++){
+        const s = document.createElement('div');
+        s.className="star";
+        s.style.left = Math.floor(Math.random()*100)+'vw';
+        s.style.top = Math.floor(Math.random()*100)+'vh';
+        s.style.width = s.style.height = (1.1 + Math.random()*2.4)+'px';
+        s.style.animationDelay = (Math.random()*2.2).toFixed(2)+'s';
+        document.body.appendChild(s);
+      }
+    }
+    addAnimatedStars(60);
+
     const CORRECT_PASSWORD = "MOONSTAR131";
     const loginFormElem = document.getElementById('loginFormElem');
     const loginForm = document.getElementById('loginForm');
     const messageContent = document.getElementById('messageContent');
     const passwordInput = document.getElementById('password');
     const errorDiv = document.getElementById('error');
+    const blackout = document.getElementById('blackout');
+    const balloonContainer = document.getElementById('balloon-container');
+    const pullBtn = document.getElementById('pull-string-btn');
     const currentDateSpan = document.getElementById('currentDate');
-    const logoutBtn = document.getElementById('logoutBtn');
 
     loginFormElem.onsubmit = function(event) {
       event.preventDefault();
       if(passwordInput.value === CORRECT_PASSWORD){
         loginForm.style.display = "none";
-        messageContent.style.display = "block";
-        errorDiv.textContent = "";
-        updateCurrentDate();
-        if(!window.firebaseLoaded){
-          window.firebaseLoaded = true;
-          loadFirebaseFeedback();
-        }
+        blackout.style.display = "flex";
+        document.body.style.overflow = "hidden";
       } else {
         errorDiv.textContent = "❌ Incorrect password. Please try again.";
         passwordInput.value = "";
       }
     };
 
-    if(logoutBtn){
-      logoutBtn.onclick = function(){
-        loginForm.style.display = "block";
-        messageContent.style.display = "none";
-        passwordInput.value = "";
-        errorDiv.textContent = "";
-      }
+    pullBtn.onclick = function() {
+      blackout.style.display = "none";
+      document.body.style.overflow = "auto";
+      messageContent.style.display = "block";
+      updateCurrentDate();
+    };
+
+    // Continuous balloons
+    function spawnContinuousBalloons() {
+      const colors = ["#ffe066", "#ffb6a9", "#ff4e98", "#6ef6ff", "#aaf092", "#fefefe", "#ffd700", "#ff6666"];
+      setInterval(() => {
+        if(messageContent.style.display === "block"){
+          for(let i=0; i<2; i++){
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = `${7 + 85 * Math.random()}vw`;
+            balloon.style.setProperty('--color', colors[Math.floor(Math.random()*colors.length)]);
+            balloon.style.animationDelay = (Math.random()*1.8).toFixed(2) + "s";
+            balloonContainer.appendChild(balloon);
+            setTimeout(()=>balloon.remove(), 4400);
+          }
+        }
+      }, 800);
     }
+    spawnContinuousBalloons();
 
     function updateCurrentDate(){
       const now = new Date();
       const options = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kolkata" };
-      currentDateSpan.textContent = now.toLocaleDateString("en-IN", options) + " IST";
-    }
-
-    let inactivityTimer;
-    function resetInactivityTimer(){
-      clearTimeout(inactivityTimer);
-      inactivityTimer = setTimeout(() => {
-        if(messageContent.style.display === "block"){
-          loginForm.style.display = "block";
-          messageContent.style.display = "none";
-          passwordInput.value = "";
-          errorDiv.textContent = "";
-          alert("⏰ Session expired due to inactivity. Please login again.");
-        }
-      }, 30*60*1000);
-    }
-    document.addEventListener('click', resetInactivityTimer);
-    document.addEventListener('keypress', resetInactivityTimer);
-    resetInactivityTimer();
-
-    // Feedback (Firestore)
-    function loadFirebaseFeedback() {
-      const script = document.createElement('script');
-      script.type = "module";
-      script.innerHTML = `
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, query, where, orderBy, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-        const firebaseConfig = {
-          apiKey: "AIzaSyD4ZMuhDC02sDJX2XTsVhW6lzpdXi-c1WE",
-          authDomain: "hamster-portal-581b1.firebaseapp.com",
-          projectId: "hamster-portal-581b1",
-          storageBucket: "hamster-portal-581b1.firebasestorage.app",
-          messagingSenderId: "834640510947",
-          appId: "1:834640510947:web:99e169a6ed8ef6e3d2ead6"
-        };
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        const feedbackList = document.getElementById('feedbackList');
-        const mainFeedbackForm = document.getElementById('mainFeedbackForm');
-        const mainFbText = document.getElementById('mainFbText');
-
-        async function postFeedback(text, parentId = null) {
-          await addDoc(collection(db, "feedbacks"), {
-            text,
-            parentId,
-            timestamp: serverTimestamp()
-          });
-          await loadFeedbacks();
-        }
-
-        mainFeedbackForm.onsubmit = async (e) => {
-          e.preventDefault();
-          const text = mainFbText.value.trim();
-          if (text) {
-            await postFeedback(text);
-            mainFbText.value = "";
-          }
-        };
-
-        async function loadFeedbacks() {
-          feedbackList.innerHTML = "Loading...";
-          const cutoff = new Date(Date.now() - 24*60*60*1000);
-          const mainQ = query(
-            collection(db, "feedbacks"),
-            where("parentId", "==", null),
-            where("timestamp", ">=", cutoff),
-            orderBy("timestamp", "desc")
-          );
-          const mainSnaps = await getDocs(mainQ);
-          if (mainSnaps.empty) {
-            feedbackList.innerHTML = "<i>No feedback yet, be first!</i>";
-            return;
-          }
-          let html = "";
-          for (const doc of mainSnaps.docs) {
-            const d = doc.data();
-            const dt = (d.timestamp && d.timestamp.toDate) ? d.timestamp.toDate().toLocaleString() : "Just now";
-            html += \`
-              <div class="feedback-item" style="margin-top:20px;">
-                <div class="feedback-meta">Visitor • 🕒 \${dt}</div>
-                <div class="feedback-content">\${d.text}</div>
-                <form data-parent="\${doc.id}" style="margin-top:5px;">
-                  <input type="text" placeholder="Reply..." required style="width:65%;padding:5px;border-radius:7px;">
-                  <button type="submit" class="reply-btn">Reply</button>
-                </form>
-                <div class="reply-list" id="replies-\${doc.id}" style="margin-left:12px;margin-top:5px;"></div>
-              </div>
-            \`;
-          }
-          feedbackList.innerHTML = html;
-
-          document.querySelectorAll('form[data-parent]').forEach(form => {
-            form.onsubmit = async (e) => {
-              e.preventDefault();
-              const parentId = form.getAttribute("data-parent");
-              const inp = form.querySelector("input");
-              const reply = inp.value.trim();
-              if(reply){
-                await postFeedback(reply, parentId);
-                inp.value = "";
-                await loadReplies(parentId);
-              }
-            }
-          });
-
-          for (const doc of mainSnaps.docs) {
-            await loadReplies(doc.id);
-          }
-        }
-
-        async function loadReplies(parentId) {
-          const repliesQ = query(
-            collection(db, "feedbacks"),
-            where("parentId", "==", parentId),
-            orderBy("timestamp", "asc")
-          );
-          const repliesSnaps = await getDocs(repliesQ);
-          const repliesEl = document.getElementById("replies-" + parentId);
-          let repliesHtml = "";
-          for (const rdoc of repliesSnaps.docs) {
-            const rd = rdoc.data();
-            const dt = (rd.timestamp && rd.timestamp.toDate) ? rd.timestamp.toDate().toLocaleString() : "Just now";
-            repliesHtml += '<div class="reply-item" style="margin-top:4px;">↳ ' + rd.text + ' <span style="font-size:.87em;color:#ffd700;">' + dt + '</span></div>';
-          }
-          if(repliesEl) repliesEl.innerHTML = repliesHtml;
-        }
-        loadFeedbacks();
-      `;
-      document.body.appendChild(script);
+      if(currentDateSpan) currentDateSpan.textContent = now.toLocaleDateString("en-IN", options) + " IST";
     }
   </script>
 </body>
