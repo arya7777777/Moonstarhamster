@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -49,69 +48,64 @@
     input[type="password"] {
       width: 100%; padding: 12px 15px; font-size: 18px; border-radius: 10px; border: none; outline: none; background: #1a1a2e; color: #fff; box-shadow: inset 0 0 8px #444; transition: box-shadow 0.3s;
     }
-    input[type="password"]:focus { box-shadow: inset 0 0 12px #ffd700; }
+    input[type="password"]:focus { box-shadow: inset 0 0 12px #ffd700; }.btn, .memory-btn, .surprise-btn {
+  background: #ffd700; color: #1e1e2f; font-weight: bold; padding: 15px 30px; font-size: 18px; border: none; border-radius: 12px; cursor: pointer; transition: background 0.3s, transform 0.2s, box-shadow 0.2s; margin: 10px 7px; box-shadow: 0 5px 15px rgba(255,215,0,0.7); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
+}
+.btn:hover, .memory-btn:hover, .surprise-btn:hover {
+  background: #ffea00; box-shadow: 0 8px 20px rgba(255,235,20,0.9), 0 0 12px #fff9; color: #1a115a; transform: translateY(-2px);
+}
+.surprise-btn {
+  background: linear-gradient(90deg,#ffb6e6,#ffd6f2)!important; color:#221a3d !important; padding: 13px 28px; font-weight: bold;
+}
+.date-info { background: #1e1e3e; border-radius: 8px; padding: 10px 15px; margin-bottom: 15px; font-weight: 600; font-size: 1.05em; text-shadow: 0 0 4px #555; color: #f0e68c; }
+.message-content { display: none; }
+.message-box {
+  background: #222244; border-radius: 12px; padding: 20px; margin: 16px 0 20px;
+  font-family: 'Courier New', monospace; font-size: 1.13em; color: #f0e68c;
+  box-shadow: 0 4px 18px #0007; min-height: 80px; text-align: left; position: relative; word-break: break-word;
+}
+.msg-date-label { color:#ffd700; font-weight: bold; font-family: Arial, sans-serif; font-size: 1.09em; margin-bottom: 12px; display: inline-block; letter-spacing: 0.04em; }
 
-    .btn, .memory-btn, .surprise-btn {
-      background: #ffd700; color: #1e1e2f; font-weight: bold; padding: 15px 30px; font-size: 18px; border: none; border-radius: 12px; cursor: pointer; transition: background 0.3s, transform 0.2s, box-shadow 0.2s; margin: 10px 7px; box-shadow: 0 5px 15px rgba(255,215,0,0.7); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
-    }
-    .btn:hover, .memory-btn:hover, .surprise-btn:hover {
-      background: #ffea00; box-shadow: 0 8px 20px rgba(255,235,20,0.9), 0 0 12px #fff9; color: #1a115a; transform: translateY(-2px);
-    }
-    .surprise-btn {
-      background: linear-gradient(90deg,#ffb6e6,#ffd6f2)!important; color:#221a3d !important; padding: 13px 28px; font-weight: bold;
-    }
-    .date-info { background: #1e1e3e; border-radius: 8px; padding: 10px 15px; margin-bottom: 15px; font-weight: 600; font-size: 1.05em; text-shadow: 0 0 4px #555; color: #f0e68c; }
-    .message-content { display: none; }
-    .message-box {
-      background: #222244; border-radius: 12px; padding: 20px; margin: 16px 0 20px;
-      font-family: 'Courier New', monospace; font-size: 1.13em; color: #f0e68c;
-      box-shadow: 0 4px 18px #0007; min-height: 80px; text-align: left; position: relative; word-break: break-word;
-    }
-    .msg-date-label { color:#ffd700; font-weight: bold; font-family: Arial, sans-serif; font-size: 1.09em; margin-bottom: 12px; display: inline-block; letter-spacing: 0.04em; }
+.row { display:flex; flex-wrap:wrap; justify-content:center; gap: 12px 14px; }
+.row-top { margin-top: 6px; margin-bottom: 10px; }
 
-    .row { display:flex; flex-wrap:wrap; justify-content:center; gap: 12px 14px; }
-    .row-top { margin-top: 6px; margin-bottom: 10px; }
+.memories-section { margin:18px 0 10px 0; text-align:center; }
+.memories-list { display:flex; flex-wrap:wrap; justify-content:center; gap: 12px 14px; }
+.memory-btn {
+  background: linear-gradient(135deg,#363c5e 40%, #7f52ff 100%); color: #ffd700;
+  font-size: 1.05em; padding: 11px 22px; border-radius: 10px; margin: 6px 5px 4px 5px;
+}
 
-    .memories-section { margin:18px 0 10px 0; text-align:center; }
-    .memories-list { display:flex; flex-wrap:wrap; justify-content:center; gap: 12px 14px; }
-    .memory-btn {
-      background: linear-gradient(135deg,#363c5e 40%, #7f52ff 100%); color: #ffd700;
-      font-size: 1.05em; padding: 11px 22px; border-radius: 10px; margin: 6px 5px 4px 5px;
-    }
+.feedback-section { margin-top: 26px;}
+.feedback-heading { color: #ffd700; font-size: 1.25em; text-shadow: 0 0 8px #fff7, 0 0 15px #ffd70077; margin-bottom: 12px; font-weight: 700; }
+.feedback-list {margin-bottom:32px;}
+.error { color:#ff4040; margin-top:12px; font-weight:700; text-shadow:0 0 6px #ff0000; text-align:center; }
 
-    .feedback-section { margin-top: 26px;}
-    .feedback-heading { color: #ffd700; font-size: 1.25em; text-shadow: 0 0 8px #fff7, 0 0 15px #ffd70077; margin-bottom: 12px; font-weight: 700; }
-    .feedback-list {margin-bottom:32px;}
-    .error { color:#ff4040; margin-top:12px; font-weight:700; text-shadow:0 0 6px #ff0000; text-align:center; }
+/* Balloons */
+#balloon-container { pointer-events: none; position: fixed; left: 0; bottom: 0; width: 100vw; height: 100vh; z-index: 999; }
+.balloon {
+  position: absolute; bottom: -100px; width: 44px; height: 66px; opacity: 0.94; background: var(--color, #ffe066);
+  border-radius: 22px 22px 25px 25px / 48px 48px 15px 25px; animation: riseUp 4.2s linear forwards; box-shadow: 0 3px 12px #fff7; left: var(--left, 50%);
+}
+.balloon::after { content: ''; position: absolute; left: 47%; bottom: -17px; width: 3px; height: 11px; background: #ba8; border-radius: 2px; }
+@keyframes riseUp { from { bottom: -100px; opacity: 0;} to { bottom: 100vh; opacity: 1;} }
 
-    /* Balloons */
-    #balloon-container { pointer-events: none; position: fixed; left: 0; bottom: 0; width: 100vw; height: 100vh; z-index: 999; }
-    .balloon {
-      position: absolute; bottom: -100px; width: 44px; height: 66px; opacity: 0.94; background: var(--color, #ffe066);
-      border-radius: 22px 22px 25px 25px / 48px 48px 15px 25px; animation: riseUp 4.2s linear forwards; box-shadow: 0 3px 12px #fff7; left: var(--left, 50%);
-    }
-    .balloon::after { content: ''; position: absolute; left: 47%; bottom: -17px; width: 3px; height: 11px; background: #ba8; border-radius: 2px; }
-    @keyframes riseUp { from { bottom: -100px; opacity: 0;} to { bottom: 100vh; opacity: 1;} }
+/* Blackout overlay */
+#blackout { display: none; position: fixed; top:0; left:0; right:0; bottom:0; background: #111; z-index: 99999; align-items: center; justify-content: center; text-align: center; flex-direction: column; }
+#pull-string-btn {
+  background:#ffd700; color:#222; font-weight:bold; border:none; border-radius:18px; font-size:2.2em; box-shadow:0 5px 18px #ffd700bb; margin-top:18px; padding:12px 36px; cursor:pointer; animation: btnSwing 2.7s infinite alternate ease-in-out;
+}
+@keyframes btnSwing {0%{transform:rotate(-8deg);}100%{transform:rotate(8deg);}}
 
-    /* Blackout overlay */
-    #blackout { display: none; position: fixed; top:0; left:0; right:0; bottom:0; background: #111; z-index: 99999; align-items: center; justify-content: center; text-align: center; flex-direction: column; }
-    #pull-string-btn {
-      background:#ffd700; color:#222; font-weight:bold; border:none; border-radius:18px; font-size:2.2em; box-shadow:0 5px 18px #ffd700bb; margin-top:18px; padding:12px 36px; cursor:pointer; animation: btnSwing 2.7s infinite alternate ease-in-out;
-    }
-    @keyframes btnSwing {0%{transform:rotate(-8deg);}100%{transform:rotate(8deg);}}
   </style>
 </head>
 <body>
   <!-- Blackout overlay with custom text -->
   <div id="blackout">
-    <div style="font-size:2.1em; color:#ffd700; font-weight:bold; letter-spacing:.02em; margin-bottom:10px;">HBD 😏 bas ye hi bana paya</div>
-    <button id="pull-string-btn">💡</button>
-  </div>
-
-  <!-- Balloons -->
-  <div id="balloon-container"></div>
-
-  <div class="container" id="main-content">
+    <div style="font-size:2.1em; color:#ffd700; font-weight:bold; letter-spacing:.02em; margin-bottom:10px;">HBD 😏
+      bas ye hi bana paya🫣🫣😭😭 nhi sorry lights onn kro </div>
+    <button id="pull-string-btn">🖲️</button>
+  </div>  <!-- Balloons -->  <div id="balloon-container"></div>  <div class="container" id="main-content">
     <div id="loginForm" class="login-form">
       <h1>🌙✨ Hamster's Secure Message Portal 🐹</h1>
       <div class="emoji-stars">🌟🌙⭐🐹✨🌙⭐🌟🐹✨🌙⭐</div>
@@ -127,50 +121,50 @@
         🔒 This portal contains all your messages with memories and wishes.<br />
         💡 Enter the correct password to view, post, and remember.
       </div>
-    </div>
+    </div><div id="messageContent" class="message-content" style="display: none;">
+  <!-- Surprise buttons ABOVE -->
+  <div class="row row-top">
+    <a href="https://arya1111-k.github.io/happy-Birthday-Bakkuuu/" target="_blank" class="surprise-btn">🎁 Surprise 1</a>
+    <a href="https://arya7777777.github.io/Test526/" target="_blank" class="surprise-btn">🎁 Surprise 2</a>
+    <a href="https://arya1111-k.github.io/Wuywuw/" target="_blank" class="surprise-btn">🎁 Surprise 3</a>
+    <a href="https://arya7777777.github.io/Qtwtwk/" target="_blank" class="surprise-btn">🎁 Surprise 4</a>
+    <!-- New Drive video surprises -->
+    <a href="https://drive.google.com/file/d/1nnkoIRLN98oOmnTtx6nHEba-3YSkVJ8J/view" target="_blank" class="surprise-btn">🎥 Surprise video 1</a>
+    <a href="https://drive.google.com/file/d/136Pr5H6Zh0_9SgnBBac4jRnbls39uX9Q/view" target="_blank" class="surprise-btn">🎥 Surprise video 2</a>
+  </div>
 
-    <div id="messageContent" class="message-content" style="display: none;">
-      <!-- Surprise buttons ABOVE -->
-      <div class="row row-top">
-        <a href="https://arya1111-k.github.io/happy-Birthday-Bakkuuu/" target="_blank" class="surprise-btn">🎁 Surprise 1</a>
-        <a href="https://arya7777777.github.io/Test526/" target="_blank" class="surprise-btn">🎁 Surprise 2</a>
-        <a href="https://arya1111-k.github.io/Wuywuw/" target="_blank" class="surprise-btn">🎁 Surprise 3</a>
-        <a href="https://arya7777777.github.io/Qtwtwk/" target="_blank" class="surprise-btn">🎁 Surprise 4</a>
-      </div>
+  <h1>Happy Birthday Nannu!🎂</h1>
+  <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
 
-      <h1>Happy Birthday Nannu!🎂</h1>
-      <div class="date-info">📅 Last Seen: <span id="currentDate"></span></div>
+  <div class="message-box">
+    <div class="msg-date-label">🗓️ September 19, 2025</div>
+    Nannuuuuu , Nanuuuu mwri jaaaan  mere Zuvuuuu nere pyaaruuu mere shoneee mere bacheeeeee , meri duniyaaaa , mera sab kuch...Very Happy Birthday jaaana Very happy birthday im so happy for you   im sorry m kuch kar nhi payaa but im really happy today thank you so much to allah for bringing you in this in universe and in my life you're so precious to me so special go me im really happy to have you in my life    nannu very very happy birthday       Allh kare aap hamesha aise hi khush rho      aur haste rho smile krte rho ek video aarhi h  nannuu vo videl shayad banane me late ho jau but vo b dekhna nannu pls    happy birthday once again nannuu 💓💓💓💓💓💓💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂✨🫂💓💓🫂💓🫂🫂✨🫂💓🫂💓💓🫂💓🫂💓🫂🫂💓🫂💓💓🫂💓🫂💟🫂💟🫂♾️🫂♾️🫂♾️🫂♾️🫂💟🫂💟🫂💟🫂💓🫂💓🫂💓🫂💓♥️🫀♥️🫀♥️🫀♥️🫀♥️🫀♥️💓💓♥️💓♥️💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓✨♥️💓♥️💓♥️✨♥️✨🫂💓🫂💓🫂♥️🫀♥️🫀♥️💓♥️💓♥️✨✨♥️
+  </div>
 
-      <div class="message-box">
-        <div class="msg-date-label">🗓️ September 19, 2025</div>
-        Nannuuuuu , Nanuuuu mwri jaaaan  mere Zuvuuuu nere pyaaruuu mere shoneee mere bacheeeeee , meri duniyaaaa , mera sab kuch...Very Happy Birthday jaaana Very happy birthday im so happy for you   im sorry m kuch kar nhi payaa but im really happy today thank you so much to allah for bringing you in this in universe and in my life you're so precious to me so special go me im really happy to have you in my life    nannu very very happy birthday       Allh kare aap hamesha aise hi khush rho      aur haste rho smile krte rho ek video aarhi h  nannuu vo videl shayad banane me late ho jau but vo b dekhna nannu pls    happy birthday once again nannuu 💓💓💓💓💓💓💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂✨🫂💓💓🫂💓🫂🫂✨🫂💓🫂💓💓🫂💓🫂💓🫂🫂💓🫂💓💓🫂💓🫂💟🫂💟🫂♾️🫂♾️🫂♾️🫂♾️🫂💟🫂💟🫂💟🫂💓🫂💓🫂💓🫂💓♥️🫀♥️🫀♥️🫀♥️🫀♥️🫀♥️💓💓♥️💓♥️💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓🫂💓✨♥️💓♥️💓♥️✨♥️✨🫂💓🫂💓🫂♥️🫀♥️🫀♥️💓♥️💓♥️✨✨♥️
-      </div>
-
-      <!-- Memories BELOW -->
-      <div class="memories-section">
-        <h2 style="color:#ffd700; margin-bottom:12px; letter-spacing:.025em;">Our Memories</h2>
-        <div class="memories-list">
-          <button class="memory-btn">Memory 1</button>
-          <button class="memory-btn">Memory 2</button>
-          <button class="memory-btn">Memory 3</button>
-          <button class="memory-btn">Memory 4</button>
-          <button class="memory-btn">Memory 5</button>
-        </div>
-      </div>
-
-      <!-- Feedback Section -->
-      <div class="feedback-section">
-        <div class="feedback-heading">🌙 Leave a Feedback or Reply</div>
-        <form id="mainFeedbackForm" style="margin-bottom:1em;display:inline;">
-          <textarea id="mainFbText" placeholder="Leave your feedback..." required style="width:54%;min-height:48px;border-radius:8px;"></textarea>
-          <button type="submit" class="btn">Post</button>
-        </form>
-        <div id="feedbackList" class="feedback-list">Loading...</div>
-      </div>
+  <!-- Memories BELOW -->
+  <div class="memories-section">
+    <h2 style="color:#ffd700; margin-bottom:12px; letter-spacing:.025em;">Our Memories</h2>
+    <div class="memories-list">
+      <a class="memory-btn" href="https://love.tsonit.com/kajukatliii" target="_blank">Memory 1</a>
+      <a class="memory-btn" href="https://arya7777777.github.io/Two-Hearts-/" target="_blank">Memory 2</a>
+      <a class="memory-btn" href="https://arya7777777.github.io/6-MONTH/" target="_blank">Memory 3</a>
+      <a class="memory-btn" href="https://arya7777777.github.io/moon12/" target="_blank">Memory 4</a>
+      <a class="memory-btn" href="#" target="_blank">Memory 5</a>
     </div>
   </div>
 
-  <script>
+  <!-- Feedback Section -->
+  <div class="feedback-section">
+    <div class="feedback-heading">🌙 Leave a Feedback or Reply</div>
+    <form id="mainFeedbackForm" style="margin-bottom:1em;display:inline;">
+      <textarea id="mainFbText" placeholder="Leave your feedback..." required style="width:54%;min-height:48px;border-radius:8px;"></textarea>
+      <button type="submit" class="btn">Post</button>
+    </form>
+    <div id="feedbackList" class="feedback-list">Loading...</div>
+  </div>
+</div>
+
+  </div>  <script>
     // Create animated stars
     function addAnimatedStars(num=57) {
       for(let i=0;i<num;i++){
@@ -239,6 +233,5 @@
       const options = { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kolkata" };
       if(currentDateSpan) currentDateSpan.textContent = now.toLocaleDateString("en-IN", options) + " IST";
     }
-  </script>
-</body>
+  </script></body>
 </html>
